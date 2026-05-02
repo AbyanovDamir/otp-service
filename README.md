@@ -541,13 +541,6 @@ docker compose up -d --buildservice
 echo "Ожидание запуска всех сервисов (45 сек)..."
 sleep 45
 
-
-# В другом терминале — тестирование
-sudo chmod +x run-tests.sh
-sudo ./run-tests.sh
-
-
-
 ```
 
 
@@ -580,7 +573,12 @@ fi
 
 
 ```
+#### В другом терминале — тестирование
+```bash
+sudo chmod +x run-tests.sh
+sudo ./run-tests.sh
 
+```
 
 #### Очистка
 
