@@ -744,25 +744,35 @@ curl -s -X POST http://localhost:8080/api/otp/generate \
 
 ```
 
-###  Получение конфигурации OTP (админ)
+###  Генерация OTP (канал: email)
 
 ```bash
-# Используйте те данные, которые уже работали
+# Сначала получим токен (если ещё не получили)
 ADMIN_USERNAME="admin_1777742140_2588"
 ADMIN_PASSWORD="admin123"
 
-# Войдите как администратор
 ADMIN_RESPONSE=$(curl -s -X POST http://localhost:8080/api/auth/login \
   -H "Content-Type: application/json" \
   -d "{\"username\":\"$ADMIN_USERNAME\",\"password\":\"$ADMIN_PASSWORD\"}")
 
 ADMIN_TOKEN=$(echo "$ADMIN_RESPONSE" | jq -r '.data.token')
 
-echo "Токен администратора: $ADMIN_TOKEN"
+echo "✅ Токен получен: ${ADMIN_TOKEN:0:50}..."
 
-# Теперь запрос 
-curl -s -X GET http://localhost:8080/api/admin/config \
-  -H "Authorization: Bearer $ADMIN_TOKEN" | jq .
+# Теперь ПРАВИЛЬНЫЙ запрос с авторизацией
+OPERATION_ID="test_email_$(date +%s)_$$"
+
+echo "📧 Генерация OTP (email) для operationId: $OPERATION_ID"
+
+curl -s -X POST http://localhost:8080/api/otp/generate \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $ADMIN_TOKEN" \
+  -d "{
+    \"operationId\": \"$OPERATION_ID\",
+    \"channel\": \"email\"
+  }" | jq .
+
+echo "📬 Для просмотра email откройте: http://localhost:8025"
 
 
 
@@ -771,19 +781,21 @@ curl -s -X GET http://localhost:8080/api/admin/config \
 **Ответ:**
 
 ```json
-Токен администратора: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbl8xNzc3NzQyMTQwXzI1ODgiLCJ1c2VySWQiOjEsInJvbGUiOiJBRE1JTiIsImlhdCI6MTc3Nzc0MzYzOCwiZXhwIjoxNzc3ODMwMDM4fQ.z6HKpMeP3iG9nAx2R7YnzYhGp9ycf3EW7lNypCkFPXrsmjD8knwc6xp86a3NuOeX
+✅ Токен получен: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbl8xNzc3NzQyM...
+📧 Генерация OTP (email) для operationId: test_email_1777745551_3236
 {
   "success": true,
-  "message": "Config retrieved",
+  "message": "OTP generated successfully",
   "data": {
-    "id": 1,
-    "ttlSeconds": 900,
-    "codeLength": 8,
-    "updatedAt": "2026-05-02T17:15:41.18194",
-    "updatedBy": "admin_1777742140_2588"
+    "channel": "email",
+    "operationId": "test_email_1777745551_3236",
+    "sent": true,
+    "expiresAt": "2026-05-02T18:27:31.506461666"
   },
   "error": null
 }
+📬 Для просмотра email откройте: http://localhost:8025
+
 
 
 ```
