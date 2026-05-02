@@ -818,14 +818,14 @@ docker network create otp-network
 echo "===  Запуск MailHog ==="
 docker run -d -p 1025:1025 -p 8025:8025 --name mailhog --network otp-network mailhog/mailhog
 
-
+cd ~
 git clone https://github.com/melroselabs/smpp-smsc-simulator.git
 echo "=== Запуск SMPP симулятора ==="
 cd smpp-smsc-simulator
 docker compose down
 docker compose up -d
 docker network connect otp-network smpp-smsc-simulator-smscsimulator-1
-
+cd ~
 
 
 git clone https://github.com/positron48/telegram-emulator.git
@@ -936,7 +936,7 @@ curl -s http://localhost:3001/api/users | head -c 500
 # Получить чаты
 curl -s http://localhost:3001/api/chats | head -c 500
 
-
+cd ~
 # Клонирование реппозитория основных сервисов
 git clone https://github.com/AbyanovDamir/otp-service.git
 cd otp-service
