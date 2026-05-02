@@ -600,6 +600,20 @@ docker compose down -v 2>/dev/null || true
 docker rm -f otp-postgres otp-service mailhog 2>/dev/null || true
 docker rm -f smpp-smsc-simulator-smscsimulator-1 2>/dev/null || true
 
+# Остановить и удалить контейнер
+docker stop telegram-emulator
+docker rm telegram-emulator
+
+# Удалить старый образ
+docker rmi telegram-emulator:latest
+
+# Удалить все неиспользуемые образы и кэш
+docker system prune -a -f
+
+cd ~
+rm -rf ~/telegram-emulator 2>/dev/null || true
+rm -rf ~/.local/share/Trash/files/telegram-emulator* 2>/dev/null || true
+
 echo "=== 2. Удаление конфликтующих сетей ==="
 docker network rm docker_otp-network 2>/dev/null || true
 docker network rm smpp-smsc-simulator_default 2>/dev/null || true
