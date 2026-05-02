@@ -41,11 +41,6 @@ services:
     volumes:
       - ../logs:/app/logs
       - ../otp-files:/app/otp-files
-      # Монтируем конфигурационные файлы
-      - ./config/telegram.properties:/app/config/telegram.properties:ro
-      - ../src/main/resources/email.properties:/app/config/email.properties:ro
-      - ../src/main/resources/sms.properties:/app/config/sms.properties:ro
-      - ../src/main/resources/application.properties:/app/config/application.properties:ro
     networks:
       - otp-network
     restart: unless-stopped
