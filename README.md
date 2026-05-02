@@ -1232,6 +1232,69 @@ HTTP Code: 401
 
 
 ```
+#### Тестирование OTP Service совместно с эмулятором telegram 
+
+```bash
+
+# 1. Удалить всех ботов
+echo "Удаление всех существующих ботов..."
+for id in $(curl -s http://localhost:3001/api/bots | jq -r '.[].id'); do
+  echo "Удаление бота ID: $id"
+  curl -s -X DELETE http://localhost:3001/api/bots/$id
+  echo ""
+done
+
+# 2. Проверка что ботов нет
+echo -e "\nТекущие боты после очистки:"
+curl -s http://localhost:3001/api/bots | jq '.'
+
+# 3. Создание нового бота
+echo -e "\nСоздание нового бота..."
+curl -X POST http://localhost:3001/api/bots \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "OTP Service Bot",
+    "username": "otp_service_bot",
+    "token": "1234567890:ABCdefGHIjklMNOpqrsTUVwxyz"
+  }' | jq '.'
+
+# 4. Проверка создания
+echo -e "\nПроверка созданного бота:"
+curl -s "http://localhost:3001/bot1234567890:ABCdefGHIjklMNOpqrsTUVwxyz/getMe" | jq '.'
+
+
+echo "════════════════════════════════════════════════════════"
+echo "     ТЕСТ ГЕНЕРАЦИИ OTP ЧЕРЕЗ TELEGRAM"
+echo "════════════════════════════════════════════════════════"
+
+# Создаем пользователя в эмуляторе
+USER_RESP=$(curl -s -X POST http://localhost:3001/api/users \
+  -H "Content-Type: application/json" \
+  -d '{"username":"otp_user_'$(date +%s)'","first_name":"OTP","last_name":"User"}')
+CHAT_ID=$(echo "$USER_RESP" | jq -r '.id')
+echo "✅ CHAT_ID: $CHAT_ID"
+
+# Регистрация в OTP сервисе
+REG_RESP=$(curl -s -X POST http://localhost:8080/api/auth/register \
+  -H "Content-Type: application/json" \
+  -d "{\"username\":\"tg_$(date +%s)\",\"password\":\"pass123\",\"email\":\"tg_$(date +%s)@test.com\",\"phone\":\"+79990000001\",\"telegramChatId\":\"$CHAT_ID\"}")
+TOKEN=$(echo "$REG_RESP" | jq -r '.data.token')
+
+# Генерация OTP через Telegram
+echo -e "\n📤 Генерация OTP..."
+curl -X POST http://localhost:8080/api/otp/generate \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $TOKEN" \
+  -d '{"operationId":"test_'$(date +%s)'","channel":"telegram"}' | jq '.'
+
+# Показываем сообщение
+sleep 2
+echo -e "\n📨 Сообщение от бота:"
+curl -s "http://localhost:3001/api/messages?user_id=$CHAT_ID" | jq '.[-1].text'
+
+echo -e "\n✅ Готово!"
+
+```
 
 #### Очистка
 
