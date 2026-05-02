@@ -970,13 +970,14 @@ fi
 # Проверка доступности OTP сервиса
 echo "=== Проверка доступности OTP API ==="
 sleep 5
-if curl -s http://localhost:8080/health > /dev/null; then
+if curl -s http://localhost:8080/api/health > /dev/null; then
     echo "✅ OTP сервис доступен"
-    curl -s http://localhost:8080/health | head -1
+    curl -s http://localhost:8080/api/health | head -1
 else
     echo "⚠️ OTP сервис не отвечает, проверьте логи:"
     docker logs otp-service --tail 30 2>/dev/null || echo "Контейнер OTP сервиса не найден"
 fi
+
 
 
 ```
