@@ -934,7 +934,8 @@ curl -s http://localhost:3001/api/chats | head -c 500
 
 
 git clone https://github.com/AbyanovDamir/otp-service.git
-cd otp-mvn clean package -DskipTests -q
+cd otp-service
+mvn clean package -DskipTests -q
 echo "=== 10. Запуск всех сервисов ==="
 cd /home/damir/otp/otp5/otp-service/docker
 docker compose up -d --buildservice
@@ -976,8 +977,9 @@ fi
 ```
 #### В другом терминале — тестирование
 ```bash
-sudo chmod +x run-tests.sh
-sudo ./run-tests.sh
+
+sudo chmod +x test.sh
+sudo ./test.sh
 
 ```
 
