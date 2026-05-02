@@ -639,7 +639,6 @@ echo "✅ Токен: ${USER_TOKEN:0:50}..."
 ###  Генерация OTP (канал: file)
 
 ```bash
-# Используйте данные, которые уже работали
 ADMIN_USERNAME="admin_1777742140_2588"
 ADMIN_PASSWORD="admin123"
 
@@ -664,6 +663,7 @@ curl -s -X POST http://localhost:8080/api/otp/generate \
     \"operationId\": \"$OPERATION_ID\",
     \"channel\": \"file\"
   }" | jq .
+
 
 
 
@@ -694,6 +694,31 @@ curl -s -X POST http://localhost:8080/api/otp/generate \
 
 ```bash
 
+# Используйте данные, которые уже работали
+ADMIN_USERNAME="admin_1777742140_2588"
+ADMIN_PASSWORD="admin123"
+
+# Войдите как администратор
+ADMIN_RESPONSE=$(curl -s -X POST http://localhost:8080/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d "{\"username\":\"$ADMIN_USERNAME\",\"password\":\"$ADMIN_PASSWORD\"}")
+
+ADMIN_TOKEN=$(echo "$ADMIN_RESPONSE" | jq -r '.data.token')
+
+echo "✅ Токен администратора получен: ${ADMIN_TOKEN:0:50}..."
+
+# Генерация OTP (sms) С ПРАВИЛЬНЫМ ЗАГОЛОВКОМ
+OPERATION_ID="test_sms_$(date +%s)_$$"
+
+echo "📱 Генерация OTP (sms) для operationId: $OPERATION_ID"
+
+curl -s -X POST http://localhost:8080/api/otp/generate \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $ADMIN_TOKEN" \
+  -d "{
+    \"operationId\": \"$OPERATION_ID\",
+    \"channel\": \"sms\"
+  }" | jq .
 
 
 ```
