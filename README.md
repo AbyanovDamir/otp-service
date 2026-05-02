@@ -977,7 +977,7 @@ fi
 ```
 #### В другом терминале — тестирование
 ```bash
-
+cd otp-service
 sudo chmod +x test.sh
 sudo ./test.sh
 
