@@ -940,6 +940,14 @@ cd ~
 # Клонирование реппозитория основных сервисов
 git clone https://github.com/AbyanovDamir/otp-service.git
 cd otp-service
+#  Создаем директорию для конфигов на хосте
+mkdir -p docker/config
+# Копируем все ваши конфиги в эту директорию
+cp src/main/resources/application.properties docker/config/
+cp src/main/resources/email.properties docker/config/
+cp src/main/resources/sms.properties docker/config/
+cp src/main/resources/telegram.properties docker/config/
+
 mvn clean package -DskipTests -q
 echo "===  Запуск всех сервисов ==="
 cd /home/damir/otp/otp5/otp-service/docker
