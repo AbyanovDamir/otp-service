@@ -726,19 +726,20 @@ curl -s -X POST http://localhost:8080/api/otp/generate \
 **Ответ:**
 
 ```json
-Токен администратора: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbl8xNzc3NzQyMTQwXzI1ODgiLCJ1c2VySWQiOjEsInJvbGUiOiJBRE1JTiIsImlhdCI6MTc3Nzc0MzYzOCwiZXhwIjoxNzc3ODMwMDM4fQ.z6HKpMeP3iG9nAx2R7YnzYhGp9ycf3EW7lNypCkFPXrsmjD8knwc6xp86a3NuOeX
+✅ Токен администратора получен: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbl8xNzc3NzQyM...
+📱 Генерация OTP (sms) для operationId: test_sms_1777745172_3236
 {
   "success": true,
-  "message": "Config retrieved",
+  "message": "OTP generated successfully",
   "data": {
-    "id": 1,
-    "ttlSeconds": 900,
-    "codeLength": 8,
-    "updatedAt": "2026-05-02T17:15:41.18194",
-    "updatedBy": "admin_1777742140_2588"
+    "channel": "sms",
+    "operationId": "test_sms_1777745172_3236",
+    "sent": true,
+    "expiresAt": "2026-05-02T18:21:12.833447248"
   },
   "error": null
 }
+
 
 
 ```
