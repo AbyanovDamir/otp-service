@@ -639,36 +639,7 @@ echo "✅ Токен: ${USER_TOKEN:0:50}..."
 ###  Генерация OTP (канал: file)
 
 ```bash
-
-
-
-
-```
-
-**Ответ:**
-
-```json
-Токен администратора: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbl8xNzc3NzQyMTQwXzI1ODgiLCJ1c2VySWQiOjEsInJvbGUiOiJBRE1JTiIsImlhdCI6MTc3Nzc0MzYzOCwiZXhwIjoxNzc3ODMwMDM4fQ.z6HKpMeP3iG9nAx2R7YnzYhGp9ycf3EW7lNypCkFPXrsmjD8knwc6xp86a3NuOeX
-{
-  "success": true,
-  "message": "Config retrieved",
-  "data": {
-    "id": 1,
-    "ttlSeconds": 900,
-    "codeLength": 8,
-    "updatedAt": "2026-05-02T17:15:41.18194",
-    "updatedBy": "admin_1777742140_2588"
-  },
-  "error": null
-}
-
-
-```
-
-###  Получение конфигурации OTP (админ)
-
-```bash
-# Используйте те данные, которые уже работали
+# Используйте данные, которые уже работали
 ADMIN_USERNAME="admin_1777742140_2588"
 ADMIN_PASSWORD="admin123"
 
@@ -679,11 +650,49 @@ ADMIN_RESPONSE=$(curl -s -X POST http://localhost:8080/api/auth/login \
 
 ADMIN_TOKEN=$(echo "$ADMIN_RESPONSE" | jq -r '.data.token')
 
-echo "Токен администратора: $ADMIN_TOKEN"
+echo "✅ Токен администратора получен: ${ADMIN_TOKEN:0:50}..."
 
-# Теперь запрос 
-curl -s -X GET http://localhost:8080/api/admin/config \
-  -H "Authorization: Bearer $ADMIN_TOKEN" | jq .
+# Генерация OTP (file) С ТОКЕНОМ
+OPERATION_ID="test_file_$(date +%s)_$$"
+
+echo "🔢 Генерация OTP (file) для operationId: $OPERATION_ID"
+
+curl -s -X POST http://localhost:8080/api/otp/generate \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $ADMIN_TOKEN" \
+  -d "{
+    \"operationId\": \"$OPERATION_ID\",
+    \"channel\": \"file\"
+  }" | jq .
+
+
+
+```
+
+**Ответ:**
+
+```json
+✅ Токен администратора получен: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbl8xNzc3NzQyM...
+🔢 Генерация OTP (file) для operationId: test_file_1777744662_3236
+{
+  "success": true,
+  "message": "OTP generated successfully",
+  "data": {
+    "channel": "file",
+    "operationId": "test_file_1777744662_3236",
+    "sent": true,
+    "expiresAt": "2026-05-02T18:12:42.332639815"
+  },
+  "error": null
+}
+
+
+
+```
+
+###  Генерация OTP (канал: sms)
+
+```bash
 
 
 
