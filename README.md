@@ -282,35 +282,23 @@ otp-service/
 
 ## 📝 Примеры запросов
 
-### Регистрация
-```bash
-curl -X POST http://localhost:8080/api/auth/register \
-  -H "Content-Type: application/json" \
-  -d '{"username":"user","password":"123456","email":"user@test.com","phone":"+79991234567"}'
-
-
-
-
-## Примеры запросов и ответов
-
-### Регистрация
+### Health check
 
 ```bash
-
-curl -X POST http://localhost:8080/register \
-  -H "Content-Type: application/json" \
-  -d '{"email":"user@example.com","password":"123456","fullName":"User Name"}'
+curl -s -X GET http://localhost:8080/api/health | jq .
 
 ```
 
 **Ответ:**
 
 ```json
-
 {
-  "token": "eyJhbGciOiJIUzI1NiIs...",
-  "message": "Registration successful"
+  "success": true,
+  "message": "Service is running",
+  "data": null,
+  "error": null
 }
+
 
 ```
 
@@ -334,38 +322,82 @@ curl -X POST http://localhost:8080/login \
 
 ```
 
-###  Получение списка заданий
+###  Регистрация администратора
 
 ```bash
+ADMIN_USERNAME="admin_$(date +%s)_$$"
+ADMIN_PASSWORD="admin123"
+ADMIN_EMAIL="${ADMIN_USERNAME}@test.com"
+ADMIN_PHONE="+7999${RANDOM}${RANDOM}"
 
-curl -H "Authorization: Bearer $TOKEN" http://localhost:8080/trainings
+echo "📝 Регистрация администратора: $ADMIN_USERNAME"
 
-```
-
-**Ответ:**
-
-```json
-[
-  {
-    "id": 1,
-    "type": "test",
-    "title": "SQL JOINs",
-    "description": "Выберите правильные варианты",
-    "maxScore": 100
-  }
-]
-
-```
-
-
-###  Отправка ответа на тестовое задание
-
-```bash
-
-curl -X POST http://localhost:8080/trainings/1/attempt \
-  -H "Authorization: Bearer $TOKEN" \
+ADMIN_RESPONSE=$(curl -s -X POST http://localhost:8080/api/auth/register \
   -H "Content-Type: application/json" \
-  -d '{"answer":[0,1,2]}'
+  -d "{
+    \"username\": \"$ADMIN_USERNAME\",
+    \"password\": \"$ADMIN_PASSWORD\",
+    \"email\": \"$ADMIN_EMAIL\",
+    \"phone\": \"$ADMIN_PHONE\"
+  }")
+
+echo "$ADMIN_RESPONSE" | jq .
+
+# Сохраняем токен
+ADMIN_TOKEN=$(echo "$ADMIN_RESPONSE" | jq -r '.data.token')
+
+if [ "$ADMIN_TOKEN" != "null" ] && [ -n "$ADMIN_TOKEN" ]; then
+  echo "✅ Токен администратора получен"
+else
+  echo "❌ Ошибка получения токена"
+  exit 1
+fi
+
+```
+
+**Ответ:**
+
+```json
+📝 Регистрация администратора: admin_1777743283_3236
+{
+  "success": true,
+  "message": "User registered successfully",
+  "data": {
+    "user": {
+      "id": 3,
+      "username": "admin_1777743283_3236",
+      "passwordHash": "$2a$10$YZt2c8JWkbBH2Pb8aHvD0epbIshkysC5yiLFoQJ6tCN7.eyoeDFc.",
+      "email": "admin_1777743283_3236@test.com",
+      "phone": "+7999122651549",
+      "telegramChatId": null,
+      "role": "USER",
+      "createdAt": "2026-05-02T17:34:43.410943",
+      "updatedAt": "2026-05-02T17:34:43.410943",
+      "admin": false
+    },
+    "token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbl8xNzc3NzQzMjgzXzMyMzYiLCJ1c2VySWQiOjMsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzc3NzQzMjgzLCJleHAiOjE3Nzc4Mjk2ODN9.lPpnjpMC_uSdZLu1wNbQ7pLimeHnfVmn0pDVHf5bYu22tYKqMTnAjPDFzofyoe2u"
+  },
+  "error": null
+}
+✅ Токен администратора получен
+```
+
+
+###  Вход администратора (если уже зарегистрирован)
+
+```bash
+echo "🔑 Вход администратора..."
+
+ADMIN_RESPONSE=$(curl -s -X POST http://localhost:8080/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d "{
+    \"username\": \"$ADMIN_USERNAME\",
+    \"password\": \"$ADMIN_PASSWORD\"
+  }")
+
+ADMIN_TOKEN=$(echo "$ADMIN_RESPONSE" | jq -r '.data.token')
+echo "$ADMIN_RESPONSE" | jq .
+echo "✅ Токен: ${ADMIN_TOKEN:0:50}..."
 
 
 ```
@@ -373,19 +405,242 @@ curl -X POST http://localhost:8080/trainings/1/attempt \
 **Ответ:**
 
 ```json
+🔑 Вход администратора...
 {
-  "score": 100,
-  "max_score": 100,
-  "message": "Attempt submitted successfully"
+  "success": true,
+  "message": "Login successful",
+  "data": {
+    "user": {
+      "id": 3,
+      "username": "admin_1777743283_3236",
+      "passwordHash": "$2a$10$YZt2c8JWkbBH2Pb8aHvD0epbIshkysC5yiLFoQJ6tCN7.eyoeDFc.",
+      "email": "admin_1777743283_3236@test.com",
+      "phone": "+7999122651549",
+      "telegramChatId": null,
+      "role": "USER",
+      "createdAt": "2026-05-02T17:34:43.410943",
+      "updatedAt": "2026-05-02T17:34:43.410943",
+      "admin": false
+    },
+    "token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbl8xNzc3NzQzMjgzXzMyMzYiLCJ1c2VySWQiOjMsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzc3NzQzNDI4LCJleHAiOjE3Nzc4Mjk4Mjh9.uSJcYjBkI0nV33_OVrIzq-Psugbz5-dFNB9wJJ8ZzV4SyBi0OR2fszpyoPXpZ8Xo"
+  },
+  "error": null
 }
+✅ Токен: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbl8xNzc3NzQzM...
+
 
 ```
 
-###  Проверка прогресса
+###  Получение конфигурации OTP (админ)
+
+```bash
+# Используйте те данные, которые уже работали
+ADMIN_USERNAME="admin_1777742140_2588"
+ADMIN_PASSWORD="admin123"
+
+# Войдите как администратор
+ADMIN_RESPONSE=$(curl -s -X POST http://localhost:8080/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d "{\"username\":\"$ADMIN_USERNAME\",\"password\":\"$ADMIN_PASSWORD\"}")
+
+ADMIN_TOKEN=$(echo "$ADMIN_RESPONSE" | jq -r '.data.token')
+
+echo "Токен администратора: $ADMIN_TOKEN"
+
+# Теперь запрос 
+curl -s -X GET http://localhost:8080/api/admin/config \
+  -H "Authorization: Bearer $ADMIN_TOKEN" | jq .
+
+
+
+```
+
+**Ответ:**
+
+```json
+Токен администратора: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbl8xNzc3NzQyMTQwXzI1ODgiLCJ1c2VySWQiOjEsInJvbGUiOiJBRE1JTiIsImlhdCI6MTc3Nzc0MzYzOCwiZXhwIjoxNzc3ODMwMDM4fQ.z6HKpMeP3iG9nAx2R7YnzYhGp9ycf3EW7lNypCkFPXrsmjD8knwc6xp86a3NuOeX
+{
+  "success": true,
+  "message": "Config retrieved",
+  "data": {
+    "id": 1,
+    "ttlSeconds": 900,
+    "codeLength": 8,
+    "updatedAt": "2026-05-02T17:15:41.18194",
+    "updatedBy": "admin_1777742140_2588"
+  },
+  "error": null
+}
+
+
+```
+
+
+###  Обновление конфигурации OTP (админ)
+
+```bash
+# Используйте те данные, которые уже работали
+ADMIN_USERNAME="admin_1777742140_2588"
+ADMIN_PASSWORD="admin123"
+
+# Войдите как администратор
+ADMIN_RESPONSE=$(curl -s -X POST http://localhost:8080/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d "{\"username\":\"$ADMIN_USERNAME\",\"password\":\"$ADMIN_PASSWORD\"}")
+
+ADMIN_TOKEN=$(echo "$ADMIN_RESPONSE" | jq -r '.data.token')
+
+echo "Токен администратора: $ADMIN_TOKEN"
+
+# Теперь запрос 
+echo "⚙️ Обновление конфигурации OTP..."
+
+curl -s -X PUT http://localhost:8080/api/admin/config \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $ADMIN_TOKEN" \
+  -d '{
+    "ttlSeconds": 900,
+    "codeLength": 8
+  }' | jq .
+
+
+
+```
+
+**Ответ:**
+
+```json
+Токен администратора: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbl8xNzc3NzQyMTQwXzI1ODgiLCJ1c2VySWQiOjEsInJvbGUiOiJBRE1JTiIsImlhdCI6MTc3Nzc0NDA2MywiZXhwIjoxNzc3ODMwNDYzfQ.6kuHlWnb0uc8v-Z9IocvkZ3w0BRqWvfBt_rJJBPOhpCLgP7qcmztriDR5eRJ6E4h
+⚙ Обновление конфигурации OTP...
+{
+  "success": true,
+  "message": "Config updated successfully",
+  "data": {
+    "id": 1,
+    "ttlSeconds": 900,
+    "codeLength": 8,
+    "updatedAt": "2026-05-02T17:47:43.633306",
+    "updatedBy": "admin_1777742140_2588"
+  },
+  "error": null
+}
+
+
+```
+
+###  Регистрация обычного пользователя
+
+```bash
+USER_USERNAME="user_$(date +%s)_$$"
+USER_PASSWORD="user123"
+USER_EMAIL="${USER_USERNAME}@test.com"
+USER_PHONE="+7888${RANDOM}${RANDOM}"
+
+echo "👤 Регистрация пользователя: $USER_USERNAME"
+
+USER_RESPONSE=$(curl -s -X POST http://localhost:8080/api/auth/register \
+  -H "Content-Type: application/json" \
+  -d "{
+    \"username\": \"$USER_USERNAME\",
+    \"password\": \"$USER_PASSWORD\",
+    \"email\": \"$USER_EMAIL\",
+    \"phone\": \"$USER_PHONE\"
+  }")
+
+echo "$USER_RESPONSE" | jq .
+USER_TOKEN=$(echo "$USER_RESPONSE" | jq -r '.data.token')
+echo "✅ Токен пользователя получен"
+
+
+
+
+```
+
+**Ответ:**
+
+```json
+USER_TOKEN=$(echo "$USER_RESPONSE" | jq -r '.data.token')
+echo "✅ Токен пользователя получен"
+👤 Регистрация пользователя: user_1777744129_3236
+{
+  "success": true,
+  "message": "User registered successfully",
+  "data": {
+    "user": {
+      "id": 4,
+      "username": "user_1777744129_3236",
+      "passwordHash": "$2a$10$y89lrXDlXampBkn/ADVXNuOfwwzjZF/pxhfsMScuO9Efi8/xuTvey",
+      "email": "user_1777744129_3236@test.com",
+      "phone": "+7888648717272",
+      "telegramChatId": null,
+      "role": "USER",
+      "createdAt": "2026-05-02T17:48:49.912851",
+      "updatedAt": "2026-05-02T17:48:49.912851",
+      "admin": false
+    },
+    "token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ1c2VyXzE3Nzc3NDQxMjlfMzIzNiIsInVzZXJJZCI6NCwicm9sZSI6IlVTRVIiLCJpYXQiOjE3Nzc3NDQxMjksImV4cCI6MTc3NzgzMDUyOX0.BxlIHKOlDmj-HJLtsfXJ7aIvjCAZHEVpzhO4hz6HaN3Hu3SuMGl08XE7XGj0Qc0d"
+  },
+  "error": null
+}
+✅ Токен пользователя получен
+
+
+```
+
+###  Вход обычного пользовател
+
+```bash
+echo "🔑 Вход пользователя..."
+
+USER_RESPONSE=$(curl -s -X POST http://localhost:8080/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d "{
+    \"username\": \"$USER_USERNAME\",
+    \"password\": \"$USER_PASSWORD\"
+  }")
+
+USER_TOKEN=$(echo "$USER_RESPONSE" | jq -r '.data.token')
+echo "$USER_RESPONSE" | jq .
+echo "✅ Токен: ${USER_TOKEN:0:50}..."
+
+
+
+```
+
+**Ответ:**
+
+```json
+🔑 Вход пользователя...
+{
+  "success": true,
+  "message": "Login successful",
+  "data": {
+    "user": {
+      "id": 4,
+      "username": "user_1777744129_3236",
+      "passwordHash": "$2a$10$y89lrXDlXampBkn/ADVXNuOfwwzjZF/pxhfsMScuO9Efi8/xuTvey",
+      "email": "user_1777744129_3236@test.com",
+      "phone": "+7888648717272",
+      "telegramChatId": null,
+      "role": "USER",
+      "createdAt": "2026-05-02T17:48:49.912851",
+      "updatedAt": "2026-05-02T17:48:49.912851",
+      "admin": false
+    },
+    "token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ1c2VyXzE3Nzc3NDQxMjlfMzIzNiIsInVzZXJJZCI6NCwicm9sZSI6IlVTRVIiLCJpYXQiOjE3Nzc3NDQzMTUsImV4cCI6MTc3NzgzMDcxNX0.evagOJP19GBvO1LuI46nz88JLj7Sz8G5pzVC2EZrc39SAiYK75Jb9O7OxDEFjGP0"
+  },
+  "error": null
+}
+✅ Токен: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ1c2VyXzE3Nzc3NDQxM..
+
+
+```
+
+###  Генерация OTP (канал: file)
 
 ```bash
 
-curl -H "Authorization: Bearer $TOKEN" http://localhost:8080/profile/progress
+
 
 
 ```
@@ -393,12 +648,111 @@ curl -H "Authorization: Bearer $TOKEN" http://localhost:8080/profile/progress
 **Ответ:**
 
 ```json
+Токен администратора: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbl8xNzc3NzQyMTQwXzI1ODgiLCJ1c2VySWQiOjEsInJvbGUiOiJBRE1JTiIsImlhdCI6MTc3Nzc0MzYzOCwiZXhwIjoxNzc3ODMwMDM4fQ.z6HKpMeP3iG9nAx2R7YnzYhGp9ycf3EW7lNypCkFPXrsmjD8knwc6xp86a3NuOeX
 {
-  "total_points": 100,
-  "tasks_completed": 1
+  "success": true,
+  "message": "Config retrieved",
+  "data": {
+    "id": 1,
+    "ttlSeconds": 900,
+    "codeLength": 8,
+    "updatedAt": "2026-05-02T17:15:41.18194",
+    "updatedBy": "admin_1777742140_2588"
+  },
+  "error": null
 }
 
+
 ```
+
+###  Получение конфигурации OTP (админ)
+
+```bash
+# Используйте те данные, которые уже работали
+ADMIN_USERNAME="admin_1777742140_2588"
+ADMIN_PASSWORD="admin123"
+
+# Войдите как администратор
+ADMIN_RESPONSE=$(curl -s -X POST http://localhost:8080/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d "{\"username\":\"$ADMIN_USERNAME\",\"password\":\"$ADMIN_PASSWORD\"}")
+
+ADMIN_TOKEN=$(echo "$ADMIN_RESPONSE" | jq -r '.data.token')
+
+echo "Токен администратора: $ADMIN_TOKEN"
+
+# Теперь запрос 
+curl -s -X GET http://localhost:8080/api/admin/config \
+  -H "Authorization: Bearer $ADMIN_TOKEN" | jq .
+
+
+
+```
+
+**Ответ:**
+
+```json
+Токен администратора: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbl8xNzc3NzQyMTQwXzI1ODgiLCJ1c2VySWQiOjEsInJvbGUiOiJBRE1JTiIsImlhdCI6MTc3Nzc0MzYzOCwiZXhwIjoxNzc3ODMwMDM4fQ.z6HKpMeP3iG9nAx2R7YnzYhGp9ycf3EW7lNypCkFPXrsmjD8knwc6xp86a3NuOeX
+{
+  "success": true,
+  "message": "Config retrieved",
+  "data": {
+    "id": 1,
+    "ttlSeconds": 900,
+    "codeLength": 8,
+    "updatedAt": "2026-05-02T17:15:41.18194",
+    "updatedBy": "admin_1777742140_2588"
+  },
+  "error": null
+}
+
+
+```
+
+###  Получение конфигурации OTP (админ)
+
+```bash
+# Используйте те данные, которые уже работали
+ADMIN_USERNAME="admin_1777742140_2588"
+ADMIN_PASSWORD="admin123"
+
+# Войдите как администратор
+ADMIN_RESPONSE=$(curl -s -X POST http://localhost:8080/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d "{\"username\":\"$ADMIN_USERNAME\",\"password\":\"$ADMIN_PASSWORD\"}")
+
+ADMIN_TOKEN=$(echo "$ADMIN_RESPONSE" | jq -r '.data.token')
+
+echo "Токен администратора: $ADMIN_TOKEN"
+
+# Теперь запрос 
+curl -s -X GET http://localhost:8080/api/admin/config \
+  -H "Authorization: Bearer $ADMIN_TOKEN" | jq .
+
+
+
+```
+
+**Ответ:**
+
+```json
+Токен администратора: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbl8xNzc3NzQyMTQwXzI1ODgiLCJ1c2VySWQiOjEsInJvbGUiOiJBRE1JTiIsImlhdCI6MTc3Nzc0MzYzOCwiZXhwIjoxNzc3ODMwMDM4fQ.z6HKpMeP3iG9nAx2R7YnzYhGp9ycf3EW7lNypCkFPXrsmjD8knwc6xp86a3NuOeX
+{
+  "success": true,
+  "message": "Config retrieved",
+  "data": {
+    "id": 1,
+    "ttlSeconds": 900,
+    "codeLength": 8,
+    "updatedAt": "2026-05-02T17:15:41.18194",
+    "updatedBy": "admin_1777742140_2588"
+  },
+  "error": null
+}
+
+
+```
+
 ---
 ### Запуск проекта и тестирование
 #### Требования
