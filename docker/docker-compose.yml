@@ -41,6 +41,7 @@ services:
     volumes:
       - ../logs:/app/logs
       - ../otp-files:/app/otp-files
+      - ./config:/app/config  # Монтирование директории с конфигами
     networks:
       - otp-network
     restart: unless-stopped
