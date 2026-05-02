@@ -927,7 +927,7 @@ docker run -d \
 docker ps | grep telegram-emulator
 docker logs telegram-emulator
 
-#9. Тестирование API
+#Тестирование API
 
 
 # Получить пользователей
@@ -937,6 +937,7 @@ curl -s http://localhost:3001/api/users | head -c 500
 curl -s http://localhost:3001/api/chats | head -c 500
 
 
+# Клонирование реппозитория основных сервисов
 git clone https://github.com/AbyanovDamir/otp-service.git
 cd otp-service
 mvn clean package -DskipTests -q
