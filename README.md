@@ -981,6 +981,250 @@ sudo ./run-tests.sh
 
 ```
 
+**Результат теста:**
+
+```
+==========================================
+ТЕСТИРОВАНИЕ OTP SERVICE
+==========================================\033[0m
+🔑 Уникальный ID запуска: 1777746568_1257
+👤 Администратор: admin_1777746568_1257
+👤 Пользователь: user_1777746568_1257
+
+Проверка доступности сервиса...
+Сервис доступен
+
+>>> ТЕСТ 1: Health check
+📤 ЗАПРОС: GET http://localhost:8080/api/health
+📥 ОТВЕТ: {
+  "success" : true,
+  "message" : "Service is running",
+  "data" : null,
+  "error" : null
+}
+HTTP Code: 200
+✓ ПРОЙДЕН: Health check endpoint
+
+>>> ТЕСТ 2: Регистрация администратора
+📤 ЗАПРОС: POST http://localhost:8080/api/auth/register
+📦 ТЕЛО: {"username":"admin_1777746568_1257","password":"admin123","email":"admin_1777746568_1257@test.com","phone":"+79991257746568"}
+📥 ОТВЕТ: {
+  "success" : true,
+  "message" : "User registered successfully",
+  "data" : {
+    "user" : {
+      "id" : 1,
+      "username" : "admin_1777746568_1257",
+      "passwordHash" : "$2a$10$wRJWeqti5qBaUzauk0YAnujL.m9g1.7dsBuwoSCvbU4VjutIDIKyK",
+      "email" : "admin_1777746568_1257@test.com",
+      "phone" : "+79991257746568",
+      "telegramChatId" : null,
+      "role" : "ADMIN",
+      "createdAt" : "2026-05-02T18:29:29.119572",
+      "updatedAt" : "2026-05-02T18:29:29.119572",
+      "admin" : true
+    },
+    "token" : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbl8xNzc3NzQ2NTY4XzEyNTciLCJ1c2VySWQiOjEsInJvbGUiOiJBRE1JTiIsImlhdCI6MTc3Nzc0NjU2OSwiZXhwIjoxNzc3ODMyOTY5fQ.Y3_YmPOyuWV-ePH8NsMC2KsYQz8933WjKAQY61SFmZj1O8PpdeI7ml4OM3-TPD_Z"
+  },
+  "error" : null
+}
+HTTP Code: 201
+
+🔧 Проверка прав администратора...
+✓ Уже имеет роль ADMIN
+✓ ПРОЙДЕН: Регистрация/вход администратора (уже ADMIN)
+  ✓ Токен администратора получен и активен
+
+>>> ТЕСТ 4: Получение конфигурации OTP
+📤 ЗАПРОС: GET http://localhost:8080/api/admin/config (Authorization: Bearer ***)
+📥 ОТВЕТ: {
+  "success" : true,
+  "message" : "Config retrieved",
+  "data" : {
+    "id" : 1,
+    "ttlSeconds" : 300,
+    "codeLength" : 6,
+    "updatedAt" : "2026-05-02T18:21:48.876832",
+    "updatedBy" : "system"
+  },
+  "error" : null
+}
+HTTP Code: 200
+✓ ПРОЙДЕН: Получение конфигурации
+  Текущая конфигурация: TTL=300с, Длина=6 цифр
+
+>>> ТЕСТ 5: Обновление конфигурации OTP
+📤 ЗАПРОС: PUT http://localhost:8080/api/admin/config
+📦 ТЕЛО: {"ttlSeconds":900,"codeLength":8}
+📥 ОТВЕТ: {
+  "success" : true,
+  "message" : "Config updated successfully",
+  "data" : {
+    "id" : 1,
+    "ttlSeconds" : 900,
+    "codeLength" : 8,
+    "updatedAt" : "2026-05-02T18:29:29.554522",
+    "updatedBy" : "admin_1777746568_1257"
+  },
+  "error" : null
+}
+HTTP Code: 200
+✓ ПРОЙДЕН: Обновление конфигурации
+
+>>> ТЕСТ 6: Регистрация обычного пользователя
+📤 ЗАПРОС: POST http://localhost:8080/api/auth/register
+📦 ТЕЛО: {"username":"user_1777746568_1257","password":"user123","email":"user_1777746568_1257@test.com","phone":"+78881257746568"}
+📥 ОТВЕТ: {
+  "success" : true,
+  "message" : "User registered successfully",
+  "data" : {
+    "user" : {
+      "id" : 2,
+      "username" : "user_1777746568_1257",
+      "passwordHash" : "$2a$10$hpWJkoPk0xbzEMuO8c70s.R4JbR/uDFNiNrzFmkp6I6ixAgsS6N9W",
+      "email" : "user_1777746568_1257@test.com",
+      "phone" : "+78881257746568",
+      "telegramChatId" : null,
+      "role" : "USER",
+      "createdAt" : "2026-05-02T18:29:29.710561",
+      "updatedAt" : "2026-05-02T18:29:29.710561",
+      "admin" : false
+    },
+    "token" : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ1c2VyXzE3Nzc3NDY1NjhfMTI1NyIsInVzZXJJZCI6Miwicm9sZSI6IlVTRVIiLCJpYXQiOjE3Nzc3NDY1NjksImV4cCI6MTc3NzgzMjk2OX0.xRQqoKbTCUuq2EeOnBwXC_-s55jpl7DaPkG3kMSUA3yxlXjeGwpBEUGoBIYf_uST"
+  },
+  "error" : null
+}
+HTTP Code: 201
+✓ ПРОЙДЕН: Регистрация пользователя
+
+>>> ТЕСТ 7: Вход обычного пользователя
+📤 ЗАПРОС: POST http://localhost:8080/api/auth/login
+📦 ТЕЛО: {"username":"user_1777746568_1257","password":"user123"}
+📥 ОТВЕТ: {
+  "success" : true,
+  "message" : "Login successful",
+  "data" : {
+    "user" : {
+      "id" : 2,
+      "username" : "user_1777746568_1257",
+      "passwordHash" : "$2a$10$hpWJkoPk0xbzEMuO8c70s.R4JbR/uDFNiNrzFmkp6I6ixAgsS6N9W",
+      "email" : "user_1777746568_1257@test.com",
+      "phone" : "+78881257746568",
+      "telegramChatId" : null,
+      "role" : "USER",
+      "createdAt" : "2026-05-02T18:29:29.710561",
+      "updatedAt" : "2026-05-02T18:29:29.710561",
+      "admin" : false
+    },
+    "token" : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ1c2VyXzE3Nzc3NDY1NjhfMTI1NyIsInVzZXJJZCI6Miwicm9sZSI6IlVTRVIiLCJpYXQiOjE3Nzc3NDY1NjksImV4cCI6MTc3NzgzMjk2OX0.xRQqoKbTCUuq2EeOnBwXC_-s55jpl7DaPkG3kMSUA3yxlXjeGwpBEUGoBIYf_uST"
+  },
+  "error" : null
+}
+HTTP Code: 200
+✓ ПРОЙДЕН: Вход пользователя
+  ✓ Токен пользователя получен
+
+>>> ТЕСТ 8: Генерация OTP кода (канал: file)
+📤 ЗАПРОС: POST http://localhost:8080/api/otp/generate
+📦 ТЕЛО: {"operationId":"test_file_1777746568_1257","channel":"file"}
+📥 ОТВЕТ: {
+  "success" : true,
+  "message" : "OTP generated successfully",
+  "data" : {
+    "channel" : "file",
+    "operationId" : "test_file_1777746568_1257",
+    "sent" : true,
+    "expiresAt" : "2026-05-02T18:44:29.894176231"
+  },
+  "error" : null
+}
+HTTP Code: 200
+✓ ПРОЙДЕН: Генерация OTP (file)
+
+>>> ТЕСТ 9: Генерация OTP кода (канал: sms)
+📤 ЗАПРОС: POST http://localhost:8080/api/otp/generate
+📦 ТЕЛО: {"operationId":"test_sms_1777746568_1257","channel":"sms"}
+📥 ОТВЕТ: {
+  "success" : true,
+  "message" : "OTP generated successfully",
+  "data" : {
+    "channel" : "sms",
+    "operationId" : "test_sms_1777746568_1257",
+    "sent" : true,
+    "expiresAt" : "2026-05-02T18:44:30.001064281"
+  },
+  "error" : null
+}
+HTTP Code: 200
+✓ ПРОЙДЕН: Генерация OTP (sms)
+
+>>> ТЕСТ 10: Генерация OTP кода (канал: email)
+📤 ЗАПРОС: POST http://localhost:8080/api/otp/generate
+📦 ТЕЛО: {"operationId":"test_email_1777746568_1257","channel":"email"}
+📥 ОТВЕТ: {
+  "success" : true,
+  "message" : "OTP generated successfully",
+  "data" : {
+    "channel" : "email",
+    "operationId" : "test_email_1777746568_1257",
+    "sent" : true,
+    "expiresAt" : "2026-05-02T18:44:30.166275046"
+  },
+  "error" : null
+}
+HTTP Code: 200
+✓ ПРОЙДЕН: Генерация OTP (email)
+
+  📧 Для просмотра Email откройте в браузере: http://localhost:8025
+
+>>> ТЕСТ 11: Список пользователей (админ)
+📤 ЗАПРОС: GET http://localhost:8080/api/admin/users (Authorization: Bearer ***)
+📥 ОТВЕТ: {
+  "success" : true,
+  "message" : "Users retrieved",
+  "data" : [ {
+    "id" : 2,
+    "username" : "user_1777746568_1257",
+    "passwordHash" : "$2a$10$hpWJkoPk0xbzEMuO8c70s.R4JbR/uDFNiNrzFmkp6I6ixAgsS6N9W",
+    "email" : "user_1777746568_1257@test.com",
+    "phone" : "+78881257746568",
+    "telegramChatId" : null,
+    "role" : "USER",
+    "createdAt" : "2026-05-02T18:29:29.710561",
+    "updatedAt" : "2026-05-02T18:29:29.710561",
+    "admin" : false
+  } ],
+  "error" : null
+}
+HTTP Code: 200
+✓ ПРОЙДЕН: Список пользователей
+  Всего пользователей: 1
+
+>>> ТЕСТ 12: Неавторизованный доступ к админке
+📤 ЗАПРОС: GET http://localhost:8080/api/admin/config (без авторизации)
+📥 ОТВЕТ: {"success": false, "error": "Missing or invalid authorization header"}
+HTTP Code: 401
+✓ ПРОЙДЕН: Блокировка неавторизованного доступа
+
+==========================================
+ИТОГИ ТЕСТИРОВАНИЯ
+==========================================\033[0m
+Пройдено: 11
+Не пройдено: 0
+
+📌 Примечания:
+  - Для просмотра отправленных Email откройте http://localhost:8025 (MailHog)
+  - SMS сообщения сохраняются в логах сервиса
+  - Уникальный ID запуска: 1777746568_1257
+  - Администратор: admin_1777746568_1257 / admin123
+  - Пользователь: user_1777746568_1257 / user123
+
+🎉 ВСЕ ТЕСТЫ ПРОЙДЕНЫ! Сервис работает корректно
+
+
+
+```
+
 #### Очистка
 
 ```bash
