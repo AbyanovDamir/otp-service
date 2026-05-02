@@ -1,0 +1,31 @@
+2026-04-28 14:20:38.018 [main] INFO  com.promo.otp.Main - Starting OTP Service...
+2026-04-28 14:20:38.080 [main] INFO  com.promo.otp.config.DatabaseConfig - Connecting to database: jdbc:postgresql://postgres:5432/otp_service
+2026-04-28 14:20:38.268 [main] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Starting...
+2026-04-28 14:20:39.584 [main] INFO  com.zaxxer.hikari.pool.HikariPool - OTP-HikariPool - Added connection org.postgresql.jdbc.PgConnection@485966cc
+2026-04-28 14:20:39.588 [main] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Start completed.
+2026-04-28 14:20:39.588 [main] INFO  com.promo.otp.config.DatabaseConfig - Database connection pool created successfully
+2026-04-28 14:20:39.592 [main] INFO  com.promo.otp.config.DatabaseConfig - Database connection test successful
+2026-04-28 14:20:39.612 [main] INFO  com.promo.otp.Main - Database connection pool initialized
+2026-04-28 14:20:39.624 [main] INFO  c.p.o.service.ExpiredCodesScheduler - Expired codes scheduler started
+2026-04-28 14:20:39.629 [main] INFO  com.promo.otp.Main - Expired codes cleanup scheduler started
+2026-04-28 14:20:40.457 [main] INFO  com.promo.otp.service.EmailService - Loaded email configuration
+2026-04-28 14:20:40.516 [main] INFO  com.promo.otp.service.EmailService - Email notification service initialized
+2026-04-28 14:20:40.519 [main] INFO  com.promo.otp.service.SmsService - Loaded SMS configuration
+2026-04-28 14:20:40.521 [main] INFO  com.promo.otp.service.SmsService - SMS notification service initialized with host: localhost
+2026-04-28 14:20:40.528 [main] INFO  c.promo.otp.service.TelegramService - Loaded Telegram configuration
+2026-04-28 14:20:40.529 [main] INFO  c.promo.otp.service.TelegramService - Telegram notification service initialized
+2026-04-28 14:20:40.532 [main] INFO  com.promo.otp.service.EmailService - Loaded email configuration
+2026-04-28 14:20:40.541 [main] INFO  com.promo.otp.service.EmailService - Email notification service initialized
+2026-04-28 14:20:40.543 [main] INFO  com.promo.otp.service.SmsService - Loaded SMS configuration
+2026-04-28 14:20:40.545 [main] INFO  com.promo.otp.service.SmsService - SMS notification service initialized with host: localhost
+2026-04-28 14:20:40.546 [main] INFO  c.promo.otp.service.TelegramService - Loaded Telegram configuration
+2026-04-28 14:20:40.547 [main] INFO  c.promo.otp.service.TelegramService - Telegram notification service initialized
+2026-04-28 14:20:40.631 [main] INFO  c.promo.otp.server.HttpServerManager - HTTP Server started on port 8080
+2026-04-28 14:20:40.633 [main] INFO  com.promo.otp.Main - OTP Service started successfully on port 8080
+2026-04-28 15:10:56.422 [Thread-1] INFO  com.promo.otp.Main - Shutting down OTP Service...
+2026-04-28 15:10:56.427 [Thread-1] INFO  c.promo.otp.server.HttpServerManager - HTTP Server stopped
+2026-04-28 15:10:56.430 [Thread-1] INFO  c.p.o.service.ExpiredCodesScheduler - Expired codes scheduler stopped
+2026-04-28 15:10:56.430 [Thread-1] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Shutdown initiated...
+2026-04-28 15:10:56.489 [Thread-1] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Shutdown completed.
+2026-04-28 15:10:56.489 [Thread-1] INFO  com.promo.otp.config.DatabaseConfig - Database connection pool closed
+2026-04-28 15:10:56.489 [Thread-1] INFO  com.promo.otp.Main - OTP Service stopped

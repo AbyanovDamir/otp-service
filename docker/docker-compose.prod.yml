@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: otp-postgres-prod
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - postgres_prod_data:/var/lib/postgresql/data
+    networks:
+      - otp-network-prod
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  otp-service:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: otp-service-prod
+    depends_on:
+      - postgres
+    environment:
+      DB_URL: jdbc:postgresql://postgres:5432/${DB_NAME}
+      DB_USERNAME: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      OTP_SERVICE_PORT: 8080
+      JAVA_OPTS: "-Xms512m -Xmx1024m"
+    ports:
+      - "${SERVICE_PORT:-8080}:8080"
+    volumes:
+      - ../logs:/app/logs
+      - ../otp-files:/app/otp-files
+    networks:
+      - otp-network-prod
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  postgres_prod_data:
+
+networks:
+  otp-network-prod:
+    driver: bridge

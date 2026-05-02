@@ -1,0 +1,24 @@
+2026-05-02 13:37:10.969 [main] INFO  com.promo.otp.Main - Starting OTP Service...
+2026-05-02 13:37:11.024 [main] INFO  com.promo.otp.config.DatabaseConfig - Connecting to database: jdbc:postgresql://postgres:5432/otp_service
+2026-05-02 13:37:11.273 [main] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Starting...
+2026-05-02 13:37:13.456 [main] INFO  com.zaxxer.hikari.pool.HikariPool - OTP-HikariPool - Added connection org.postgresql.jdbc.PgConnection@485966cc
+2026-05-02 13:37:13.469 [main] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Start completed.
+2026-05-02 13:37:13.471 [main] INFO  com.promo.otp.config.DatabaseConfig - Database connection pool created successfully
+2026-05-02 13:37:13.483 [main] INFO  com.promo.otp.config.DatabaseConfig - Database connection test successful
+2026-05-02 13:37:13.543 [main] INFO  com.promo.otp.Main - Database connection pool initialized
+2026-05-02 13:37:13.562 [main] INFO  c.p.o.service.ExpiredCodesScheduler - Expired codes scheduler started
+2026-05-02 13:37:13.563 [main] INFO  com.promo.otp.Main - Expired codes cleanup scheduler started
+2026-05-02 13:37:14.653 [main] INFO  com.promo.otp.service.EmailService - Loaded email configuration
+2026-05-02 13:37:14.714 [main] INFO  com.promo.otp.service.EmailService - Email service configured with host: mailhog:1025
+2026-05-02 13:37:14.718 [main] INFO  com.promo.otp.service.SmsService - Loaded SMS configuration
+2026-05-02 13:37:14.720 [main] INFO  com.promo.otp.service.SmsService - SMS notification service initialized with host: smpp-smsc-simulator-smscsimulator-1
+2026-05-02 13:37:14.725 [main] INFO  c.promo.otp.service.TelegramService - Loaded Telegram configuration
+2026-05-02 13:37:14.726 [main] INFO  c.promo.otp.service.TelegramService - Telegram notification service initialized
+2026-05-02 13:37:14.730 [main] INFO  com.promo.otp.service.EmailService - Loaded email configuration
+2026-05-02 13:37:14.750 [main] INFO  com.promo.otp.service.EmailService - Email service configured with host: mailhog:1025
+2026-05-02 13:37:14.752 [main] INFO  com.promo.otp.service.SmsService - Loaded SMS configuration
+2026-05-02 13:37:14.752 [main] INFO  com.promo.otp.service.SmsService - SMS notification service initialized with host: smpp-smsc-simulator-smscsimulator-1
+2026-05-02 13:37:14.753 [main] INFO  c.promo.otp.service.TelegramService - Loaded Telegram configuration
+2026-05-02 13:37:14.753 [main] INFO  c.promo.otp.service.TelegramService - Telegram notification service initialized
+2026-05-02 13:37:14.845 [main] INFO  c.promo.otp.server.HttpServerManager - HTTP Server started on port 8080
+2026-05-02 13:37:14.850 [main] INFO  com.promo.otp.Main - OTP Service started successfully on port 8080

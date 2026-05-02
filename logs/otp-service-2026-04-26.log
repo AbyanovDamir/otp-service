@@ -1,0 +1,673 @@
+2026-04-26 19:08:54.548 [main] INFO  com.promo.otp.Main - Starting OTP Service...
+2026-04-26 19:08:54.554 [main] INFO  com.promo.otp.config.DatabaseConfig - Connecting to database: jdbc:postgresql://localhost:5432/otp_service
+2026-04-26 19:08:54.601 [main] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Starting...
+2026-04-26 19:08:55.306 [main] INFO  com.zaxxer.hikari.pool.HikariPool - OTP-HikariPool - Added connection org.postgresql.jdbc.PgConnection@57cf54e1
+2026-04-26 19:08:55.311 [main] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Start completed.
+2026-04-26 19:08:55.313 [main] INFO  com.promo.otp.config.DatabaseConfig - Database connection pool created successfully
+2026-04-26 19:08:55.317 [main] INFO  com.promo.otp.config.DatabaseConfig - Database connection test successful
+2026-04-26 19:08:55.337 [main] INFO  com.promo.otp.Main - Database connection pool initialized
+2026-04-26 19:08:55.345 [main] INFO  c.p.o.service.ExpiredCodesScheduler - Expired codes scheduler started
+2026-04-26 19:08:55.346 [main] INFO  com.promo.otp.Main - Expired codes cleanup scheduler started
+2026-04-26 19:08:55.839 [main] INFO  com.promo.otp.service.EmailService - Loaded email configuration
+2026-04-26 19:08:55.897 [main] INFO  com.promo.otp.service.EmailService - Email notification service initialized
+2026-04-26 19:08:55.903 [main] INFO  com.promo.otp.service.SmsService - Loaded SMS configuration
+2026-04-26 19:08:55.904 [main] INFO  com.promo.otp.service.SmsService - SMS notification service initialized with host: localhost
+2026-04-26 19:08:55.907 [main] INFO  c.promo.otp.service.TelegramService - Loaded Telegram configuration
+2026-04-26 19:08:55.909 [main] INFO  c.promo.otp.service.TelegramService - Telegram notification service initialized
+2026-04-26 19:08:55.912 [main] INFO  com.promo.otp.service.EmailService - Loaded email configuration
+2026-04-26 19:08:55.921 [main] INFO  com.promo.otp.service.EmailService - Email notification service initialized
+2026-04-26 19:08:55.921 [main] INFO  com.promo.otp.service.SmsService - Loaded SMS configuration
+2026-04-26 19:08:55.922 [main] INFO  com.promo.otp.service.SmsService - SMS notification service initialized with host: localhost
+2026-04-26 19:08:55.922 [main] INFO  c.promo.otp.service.TelegramService - Loaded Telegram configuration
+2026-04-26 19:08:55.922 [main] INFO  c.promo.otp.service.TelegramService - Telegram notification service initialized
+2026-04-26 19:08:55.975 [main] INFO  c.promo.otp.server.HttpServerManager - HTTP Server started on port 8080
+2026-04-26 19:08:55.978 [main] INFO  com.promo.otp.Main - OTP Service started successfully on port 8080
+2026-04-26 19:08:58.566 [Thread-1] INFO  com.promo.otp.Main - Shutting down OTP Service...
+2026-04-26 19:08:58.568 [Thread-1] INFO  c.promo.otp.server.HttpServerManager - HTTP Server stopped
+2026-04-26 19:08:58.569 [Thread-1] INFO  c.p.o.service.ExpiredCodesScheduler - Expired codes scheduler stopped
+2026-04-26 19:08:58.570 [Thread-1] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Shutdown initiated...
+2026-04-26 19:08:58.582 [Thread-1] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Shutdown completed.
+2026-04-26 19:08:58.583 [Thread-1] INFO  com.promo.otp.config.DatabaseConfig - Database connection pool closed
+2026-04-26 19:08:58.583 [Thread-1] INFO  com.promo.otp.Main - OTP Service stopped
+2026-04-26 16:12:17.564 [main] INFO  com.promo.otp.Main - Starting OTP Service...
+2026-04-26 16:12:17.573 [main] INFO  com.promo.otp.config.DatabaseConfig - Connecting to database: jdbc:postgresql://postgres:5432/otp_service
+2026-04-26 16:12:17.627 [main] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Starting...
+2026-04-26 16:12:18.506 [main] INFO  com.zaxxer.hikari.pool.HikariPool - OTP-HikariPool - Added connection org.postgresql.jdbc.PgConnection@6fd83fc1
+2026-04-26 16:12:18.514 [main] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Start completed.
+2026-04-26 16:12:18.515 [main] INFO  com.promo.otp.config.DatabaseConfig - Database connection pool created successfully
+2026-04-26 16:12:18.548 [main] INFO  com.promo.otp.config.DatabaseConfig - Database connection test successful
+2026-04-26 16:12:18.591 [main] INFO  com.promo.otp.Main - Database connection pool initialized
+2026-04-26 16:12:18.610 [main] INFO  c.p.o.service.ExpiredCodesScheduler - Expired codes scheduler started
+2026-04-26 16:12:18.611 [main] INFO  com.promo.otp.Main - Expired codes cleanup scheduler started
+2026-04-26 16:12:19.292 [main] INFO  com.promo.otp.service.EmailService - Loaded email configuration
+2026-04-26 16:12:19.410 [main] INFO  com.promo.otp.service.EmailService - Email notification service initialized
+2026-04-26 16:12:19.414 [main] INFO  com.promo.otp.service.SmsService - Loaded SMS configuration
+2026-04-26 16:12:19.415 [main] INFO  com.promo.otp.service.SmsService - SMS notification service initialized with host: localhost
+2026-04-26 16:12:19.417 [main] INFO  c.promo.otp.service.TelegramService - Loaded Telegram configuration
+2026-04-26 16:12:19.419 [main] INFO  c.promo.otp.service.TelegramService - Telegram notification service initialized
+2026-04-26 16:12:19.424 [main] INFO  com.promo.otp.service.EmailService - Loaded email configuration
+2026-04-26 16:12:19.433 [main] INFO  com.promo.otp.service.EmailService - Email notification service initialized
+2026-04-26 16:12:19.434 [main] INFO  com.promo.otp.service.SmsService - Loaded SMS configuration
+2026-04-26 16:12:19.434 [main] INFO  com.promo.otp.service.SmsService - SMS notification service initialized with host: localhost
+2026-04-26 16:12:19.435 [main] INFO  c.promo.otp.service.TelegramService - Loaded Telegram configuration
+2026-04-26 16:12:19.435 [main] INFO  c.promo.otp.service.TelegramService - Telegram notification service initialized
+2026-04-26 16:12:19.478 [main] INFO  c.promo.otp.server.HttpServerManager - HTTP Server started on port 8080
+2026-04-26 16:12:19.480 [main] INFO  com.promo.otp.Main - OTP Service started successfully on port 8080
+2026-04-26 16:23:01.980 [Thread-1] INFO  com.promo.otp.Main - Shutting down OTP Service...
+2026-04-26 16:23:01.988 [Thread-1] INFO  c.promo.otp.server.HttpServerManager - HTTP Server stopped
+2026-04-26 16:23:01.996 [Thread-1] INFO  c.p.o.service.ExpiredCodesScheduler - Expired codes scheduler stopped
+2026-04-26 16:23:01.997 [Thread-1] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Shutdown initiated...
+2026-04-26 16:23:02.008 [Thread-1] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Shutdown completed.
+2026-04-26 16:23:02.009 [Thread-1] INFO  com.promo.otp.config.DatabaseConfig - Database connection pool closed
+2026-04-26 16:23:02.009 [Thread-1] INFO  com.promo.otp.Main - OTP Service stopped
+2026-04-26 16:23:24.193 [main] INFO  com.promo.otp.Main - Starting OTP Service...
+2026-04-26 16:23:24.215 [main] INFO  com.promo.otp.config.DatabaseConfig - Connecting to database: jdbc:postgresql://postgres:5432/otp_service
+2026-04-26 16:23:24.404 [main] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Starting...
+2026-04-26 16:23:26.046 [main] INFO  com.zaxxer.hikari.pool.HikariPool - OTP-HikariPool - Added connection org.postgresql.jdbc.PgConnection@6fd83fc1
+2026-04-26 16:23:26.065 [main] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Start completed.
+2026-04-26 16:23:26.070 [main] INFO  com.promo.otp.config.DatabaseConfig - Database connection pool created successfully
+2026-04-26 16:23:26.084 [main] INFO  com.promo.otp.config.DatabaseConfig - Database connection test successful
+2026-04-26 16:23:26.157 [main] INFO  com.promo.otp.Main - Database connection pool initialized
+2026-04-26 16:23:26.197 [main] INFO  c.p.o.service.ExpiredCodesScheduler - Expired codes scheduler started
+2026-04-26 16:23:26.201 [main] INFO  com.promo.otp.Main - Expired codes cleanup scheduler started
+2026-04-26 16:23:27.152 [main] INFO  com.promo.otp.service.EmailService - Loaded email configuration
+2026-04-26 16:23:27.378 [main] INFO  com.promo.otp.service.EmailService - Email notification service initialized
+2026-04-26 16:23:27.394 [main] INFO  com.promo.otp.service.SmsService - Loaded SMS configuration
+2026-04-26 16:23:27.396 [main] INFO  com.promo.otp.service.SmsService - SMS notification service initialized with host: localhost
+2026-04-26 16:23:27.397 [main] INFO  c.promo.otp.service.TelegramService - Loaded Telegram configuration
+2026-04-26 16:23:27.400 [main] INFO  c.promo.otp.service.TelegramService - Telegram notification service initialized
+2026-04-26 16:23:27.414 [main] INFO  com.promo.otp.service.EmailService - Loaded email configuration
+2026-04-26 16:23:27.453 [main] INFO  com.promo.otp.service.EmailService - Email notification service initialized
+2026-04-26 16:23:27.454 [main] INFO  com.promo.otp.service.SmsService - Loaded SMS configuration
+2026-04-26 16:23:27.457 [main] INFO  com.promo.otp.service.SmsService - SMS notification service initialized with host: localhost
+2026-04-26 16:23:27.462 [main] INFO  c.promo.otp.service.TelegramService - Loaded Telegram configuration
+2026-04-26 16:23:27.463 [main] INFO  c.promo.otp.service.TelegramService - Telegram notification service initialized
+2026-04-26 16:23:27.496 [main] INFO  c.promo.otp.server.HttpServerManager - HTTP Server started on port 8080
+2026-04-26 16:23:27.496 [main] INFO  com.promo.otp.Main - OTP Service started successfully on port 8080
+2026-04-26 16:24:59.225 [Thread-1] INFO  com.promo.otp.Main - Shutting down OTP Service...
+2026-04-26 16:24:59.228 [Thread-1] INFO  c.promo.otp.server.HttpServerManager - HTTP Server stopped
+2026-04-26 16:24:59.244 [Thread-1] INFO  c.p.o.service.ExpiredCodesScheduler - Expired codes scheduler stopped
+2026-04-26 16:24:59.245 [Thread-1] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Shutdown initiated...
+2026-04-26 16:24:59.258 [Thread-1] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Shutdown completed.
+2026-04-26 16:24:59.260 [Thread-1] INFO  com.promo.otp.config.DatabaseConfig - Database connection pool closed
+2026-04-26 16:24:59.260 [Thread-1] INFO  com.promo.otp.Main - OTP Service stopped
+2026-04-26 16:25:39.279 [main] INFO  com.promo.otp.Main - Starting OTP Service...
+2026-04-26 16:25:39.298 [main] INFO  com.promo.otp.config.DatabaseConfig - Connecting to database: jdbc:postgresql://postgres:5432/otp_service
+2026-04-26 16:25:39.373 [main] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Starting...
+2026-04-26 16:25:40.182 [main] INFO  com.zaxxer.hikari.pool.HikariPool - OTP-HikariPool - Added connection org.postgresql.jdbc.PgConnection@6fd83fc1
+2026-04-26 16:25:40.186 [main] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Start completed.
+2026-04-26 16:25:40.192 [main] INFO  com.promo.otp.config.DatabaseConfig - Database connection pool created successfully
+2026-04-26 16:25:40.199 [main] INFO  com.promo.otp.config.DatabaseConfig - Database connection test successful
+2026-04-26 16:25:40.219 [main] INFO  com.promo.otp.Main - Database connection pool initialized
+2026-04-26 16:25:40.225 [main] INFO  c.p.o.service.ExpiredCodesScheduler - Expired codes scheduler started
+2026-04-26 16:25:40.226 [main] INFO  com.promo.otp.Main - Expired codes cleanup scheduler started
+2026-04-26 16:25:40.769 [main] INFO  com.promo.otp.service.EmailService - Loaded email configuration
+2026-04-26 16:25:40.838 [main] INFO  com.promo.otp.service.EmailService - Email notification service initialized
+2026-04-26 16:25:40.841 [main] INFO  com.promo.otp.service.SmsService - Loaded SMS configuration
+2026-04-26 16:25:40.842 [main] INFO  com.promo.otp.service.SmsService - SMS notification service initialized with host: localhost
+2026-04-26 16:25:40.846 [main] INFO  c.promo.otp.service.TelegramService - Loaded Telegram configuration
+2026-04-26 16:25:40.847 [main] INFO  c.promo.otp.service.TelegramService - Telegram notification service initialized
+2026-04-26 16:25:40.851 [main] INFO  com.promo.otp.service.EmailService - Loaded email configuration
+2026-04-26 16:25:40.860 [main] INFO  com.promo.otp.service.EmailService - Email notification service initialized
+2026-04-26 16:25:40.862 [main] INFO  com.promo.otp.service.SmsService - Loaded SMS configuration
+2026-04-26 16:25:40.863 [main] INFO  com.promo.otp.service.SmsService - SMS notification service initialized with host: localhost
+2026-04-26 16:25:40.865 [main] INFO  c.promo.otp.service.TelegramService - Loaded Telegram configuration
+2026-04-26 16:25:40.866 [main] INFO  c.promo.otp.service.TelegramService - Telegram notification service initialized
+2026-04-26 16:25:40.953 [main] INFO  c.promo.otp.server.HttpServerManager - HTTP Server started on port 8080
+2026-04-26 16:25:40.956 [main] INFO  com.promo.otp.Main - OTP Service started successfully on port 8080
+2026-04-26 16:25:53.817 [pool-2-thread-1] INFO  com.promo.otp.dao.UserDAO - Saved user: testuser
+2026-04-26 16:25:54.012 [pool-2-thread-1] INFO  com.promo.otp.service.AuthService - User registered successfully: testuser
+2026-04-26 16:25:54.225 [pool-2-thread-1] INFO  c.p.otp.controller.AuthController - POST /api/auth/register - User registered: testuser
+2026-04-26 16:25:54.461 [pool-2-thread-3] INFO  com.promo.otp.service.AuthService - User logged in successfully: testuser
+2026-04-26 16:25:54.464 [pool-2-thread-3] INFO  c.p.otp.controller.AuthController - POST /api/auth/login - User logged in: testuser
+2026-04-26 16:31:20.051 [pool-2-thread-4] INFO  com.promo.otp.dao.OtpCodeDAO - Saved OTP code for operation: transfer_100, user: 2
+2026-04-26 16:31:20.059 [pool-2-thread-4] INFO  com.promo.otp.service.FileService - OTP code saved to file: ./otp-files/otp_testuser_1777221080053.txt
+2026-04-26 16:31:20.060 [pool-2-thread-4] INFO  com.promo.otp.service.OtpService - Generated OTP for user 2, operation transfer_100, channel file
+2026-04-26 16:31:20.087 [pool-2-thread-4] INFO  c.promo.otp.controller.OtpController - POST /api/otp/generate - User 2 generated OTP for operation transfer_100
+2026-04-26 16:33:44.153 [pool-2-thread-5] INFO  com.promo.otp.dao.OtpCodeDAO - Updated OTP code 1 status to USED
+2026-04-26 16:33:44.154 [pool-2-thread-5] INFO  com.promo.otp.service.OtpService - Validated OTP for operation transfer_100
+2026-04-26 16:33:44.156 [pool-2-thread-5] INFO  c.promo.otp.controller.OtpController - POST /api/otp/validate - Validated OTP for operation transfer_100
+2026-04-26 16:34:34.560 [pool-2-thread-5] ERROR com.promo.otp.security.PasswordUtil - Error checking password
+java.lang.IllegalArgumentException: Invalid salt version
+	at org.mindrot.jbcrypt.BCrypt.hashpw(BCrypt.java:659)
+	at org.mindrot.jbcrypt.BCrypt.checkpw(BCrypt.java:764)
+	at com.promo.otp.security.PasswordUtil.checkPassword(PasswordUtil.java:17)
+	at com.promo.otp.service.AuthService.login(AuthService.java:57)
+	at com.promo.otp.controller.AuthController.login(AuthController.java:67)
+	at com.promo.otp.server.HttpServerManager$1.handle(HttpServerManager.java:120)
+	at com.promo.otp.security.AuthFilter.authenticate(AuthFilter.java:43)
+	at com.promo.otp.server.HttpServerManager.lambda$wrap$0(HttpServerManager.java:116)
+	at jdk.httpserver/com.sun.net.httpserver.Filter$Chain.doFilter(Unknown Source)
+	at jdk.httpserver/sun.net.httpserver.AuthFilter.doFilter(Unknown Source)
+	at jdk.httpserver/com.sun.net.httpserver.Filter$Chain.doFilter(Unknown Source)
+	at jdk.httpserver/sun.net.httpserver.ServerImpl$Exchange$LinkHandler.handle(Unknown Source)
+	at jdk.httpserver/com.sun.net.httpserver.Filter$Chain.doFilter(Unknown Source)
+	at jdk.httpserver/sun.net.httpserver.ServerImpl$Exchange.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+2026-04-26 16:34:34.565 [pool-2-thread-5] WARN  c.p.otp.controller.AuthController - Login failed: Invalid username or password
+2026-04-26 16:34:34.585 [pool-2-thread-5] WARN  com.promo.otp.security.JwtUtil - Invalid JWT token: Invalid compact JWT string: Compact JWSs must contain exactly 2 period characters, and compact JWEs must contain exactly 4.  Found: 3
+2026-04-26 16:34:34.623 [pool-2-thread-5] WARN  com.promo.otp.security.JwtUtil - Invalid JWT token: Invalid compact JWT string: Compact JWSs must contain exactly 2 period characters, and compact JWEs must contain exactly 4.  Found: 3
+2026-04-26 16:34:34.650 [pool-2-thread-5] WARN  com.promo.otp.security.JwtUtil - Invalid JWT token: Invalid compact JWT string: Compact JWSs must contain exactly 2 period characters, and compact JWEs must contain exactly 4.  Found: 3
+2026-04-26 16:35:19.667 [pool-2-thread-5] ERROR com.promo.otp.security.PasswordUtil - Error checking password
+java.lang.IllegalArgumentException: Invalid salt version
+	at org.mindrot.jbcrypt.BCrypt.hashpw(BCrypt.java:659)
+	at org.mindrot.jbcrypt.BCrypt.checkpw(BCrypt.java:764)
+	at com.promo.otp.security.PasswordUtil.checkPassword(PasswordUtil.java:17)
+	at com.promo.otp.service.AuthService.login(AuthService.java:57)
+	at com.promo.otp.controller.AuthController.login(AuthController.java:67)
+	at com.promo.otp.server.HttpServerManager$1.handle(HttpServerManager.java:120)
+	at com.promo.otp.security.AuthFilter.authenticate(AuthFilter.java:43)
+	at com.promo.otp.server.HttpServerManager.lambda$wrap$0(HttpServerManager.java:116)
+	at jdk.httpserver/com.sun.net.httpserver.Filter$Chain.doFilter(Unknown Source)
+	at jdk.httpserver/sun.net.httpserver.AuthFilter.doFilter(Unknown Source)
+	at jdk.httpserver/com.sun.net.httpserver.Filter$Chain.doFilter(Unknown Source)
+	at jdk.httpserver/sun.net.httpserver.ServerImpl$Exchange$LinkHandler.handle(Unknown Source)
+	at jdk.httpserver/com.sun.net.httpserver.Filter$Chain.doFilter(Unknown Source)
+	at jdk.httpserver/sun.net.httpserver.ServerImpl$Exchange.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+2026-04-26 16:35:19.669 [pool-2-thread-5] WARN  c.p.otp.controller.AuthController - Login failed: Invalid username or password
+2026-04-26 16:36:52.182 [pool-2-thread-5] ERROR com.promo.otp.security.PasswordUtil - Error checking password
+java.lang.IllegalArgumentException: Invalid salt version
+	at org.mindrot.jbcrypt.BCrypt.hashpw(BCrypt.java:659)
+	at org.mindrot.jbcrypt.BCrypt.checkpw(BCrypt.java:764)
+	at com.promo.otp.security.PasswordUtil.checkPassword(PasswordUtil.java:17)
+	at com.promo.otp.service.AuthService.login(AuthService.java:57)
+	at com.promo.otp.controller.AuthController.login(AuthController.java:67)
+	at com.promo.otp.server.HttpServerManager$1.handle(HttpServerManager.java:120)
+	at com.promo.otp.security.AuthFilter.authenticate(AuthFilter.java:43)
+	at com.promo.otp.server.HttpServerManager.lambda$wrap$0(HttpServerManager.java:116)
+	at jdk.httpserver/com.sun.net.httpserver.Filter$Chain.doFilter(Unknown Source)
+	at jdk.httpserver/sun.net.httpserver.AuthFilter.doFilter(Unknown Source)
+	at jdk.httpserver/com.sun.net.httpserver.Filter$Chain.doFilter(Unknown Source)
+	at jdk.httpserver/sun.net.httpserver.ServerImpl$Exchange$LinkHandler.handle(Unknown Source)
+	at jdk.httpserver/com.sun.net.httpserver.Filter$Chain.doFilter(Unknown Source)
+	at jdk.httpserver/sun.net.httpserver.ServerImpl$Exchange.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+2026-04-26 16:36:52.187 [pool-2-thread-5] WARN  c.p.otp.controller.AuthController - Login failed: Invalid username or password
+2026-04-26 16:39:44.694 [Thread-1] INFO  com.promo.otp.Main - Shutting down OTP Service...
+2026-04-26 16:39:44.698 [Thread-1] INFO  c.promo.otp.server.HttpServerManager - HTTP Server stopped
+2026-04-26 16:39:44.706 [Thread-1] INFO  c.p.o.service.ExpiredCodesScheduler - Expired codes scheduler stopped
+2026-04-26 16:39:44.708 [Thread-1] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Shutdown initiated...
+2026-04-26 16:39:44.720 [Thread-1] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Shutdown completed.
+2026-04-26 16:39:44.720 [Thread-1] INFO  com.promo.otp.config.DatabaseConfig - Database connection pool closed
+2026-04-26 16:39:44.720 [Thread-1] INFO  com.promo.otp.Main - OTP Service stopped
+2026-04-26 16:40:06.266 [main] INFO  com.promo.otp.Main - Starting OTP Service...
+2026-04-26 16:40:06.285 [main] INFO  com.promo.otp.config.DatabaseConfig - Connecting to database: jdbc:postgresql://postgres:5432/otp_service
+2026-04-26 16:40:06.318 [main] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Starting...
+2026-04-26 16:40:06.905 [main] INFO  com.zaxxer.hikari.pool.HikariPool - OTP-HikariPool - Added connection org.postgresql.jdbc.PgConnection@6fd83fc1
+2026-04-26 16:40:06.909 [main] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Start completed.
+2026-04-26 16:40:06.910 [main] INFO  com.promo.otp.config.DatabaseConfig - Database connection pool created successfully
+2026-04-26 16:40:06.915 [main] INFO  com.promo.otp.config.DatabaseConfig - Database connection test successful
+2026-04-26 16:40:06.932 [main] INFO  com.promo.otp.Main - Database connection pool initialized
+2026-04-26 16:40:06.937 [main] INFO  c.p.o.service.ExpiredCodesScheduler - Expired codes scheduler started
+2026-04-26 16:40:06.940 [main] INFO  com.promo.otp.Main - Expired codes cleanup scheduler started
+2026-04-26 16:40:07.478 [main] INFO  com.promo.otp.service.EmailService - Loaded email configuration
+2026-04-26 16:40:07.608 [main] INFO  com.promo.otp.service.EmailService - Email notification service initialized
+2026-04-26 16:40:07.616 [main] INFO  com.promo.otp.service.SmsService - Loaded SMS configuration
+2026-04-26 16:40:07.616 [main] INFO  com.promo.otp.service.SmsService - SMS notification service initialized with host: localhost
+2026-04-26 16:40:07.629 [main] INFO  c.promo.otp.service.TelegramService - Loaded Telegram configuration
+2026-04-26 16:40:07.629 [main] INFO  c.promo.otp.service.TelegramService - Telegram notification service initialized
+2026-04-26 16:40:07.975 [main] INFO  com.promo.otp.service.EmailService - Loaded email configuration
+2026-04-26 16:40:08.057 [main] INFO  com.promo.otp.service.EmailService - Email notification service initialized
+2026-04-26 16:40:08.063 [main] INFO  com.promo.otp.service.SmsService - Loaded SMS configuration
+2026-04-26 16:40:08.069 [main] INFO  com.promo.otp.service.SmsService - SMS notification service initialized with host: localhost
+2026-04-26 16:40:08.085 [main] INFO  c.promo.otp.service.TelegramService - Loaded Telegram configuration
+2026-04-26 16:40:08.089 [main] INFO  c.promo.otp.service.TelegramService - Telegram notification service initialized
+2026-04-26 16:40:08.202 [main] INFO  c.promo.otp.server.HttpServerManager - HTTP Server started on port 8080
+2026-04-26 16:40:08.203 [main] INFO  com.promo.otp.Main - OTP Service started successfully on port 8080
+2026-04-26 16:41:43.498 [pool-2-thread-1] WARN  c.p.otp.controller.AuthController - Registration failed: Username already exists
+2026-04-26 16:43:20.528 [Thread-1] INFO  com.promo.otp.Main - Shutting down OTP Service...
+2026-04-26 16:43:20.533 [Thread-1] INFO  c.promo.otp.server.HttpServerManager - HTTP Server stopped
+2026-04-26 16:43:20.539 [Thread-1] INFO  c.p.o.service.ExpiredCodesScheduler - Expired codes scheduler stopped
+2026-04-26 16:43:20.543 [Thread-1] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Shutdown initiated...
+2026-04-26 16:43:20.550 [Thread-1] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Shutdown completed.
+2026-04-26 16:43:20.552 [Thread-1] INFO  com.promo.otp.config.DatabaseConfig - Database connection pool closed
+2026-04-26 16:43:20.554 [Thread-1] INFO  com.promo.otp.Main - OTP Service stopped
+2026-04-26 18:13:21.987 [main] INFO  com.promo.otp.Main - Starting OTP Service...
+2026-04-26 18:13:22.036 [main] INFO  com.promo.otp.config.DatabaseConfig - Connecting to database: jdbc:postgresql://postgres:5432/otp_service
+2026-04-26 18:13:22.096 [main] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Starting...
+2026-04-26 18:13:23.084 [main] INFO  com.zaxxer.hikari.pool.HikariPool - OTP-HikariPool - Added connection org.postgresql.jdbc.PgConnection@6fd83fc1
+2026-04-26 18:13:23.099 [main] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Start completed.
+2026-04-26 18:13:23.101 [main] INFO  com.promo.otp.config.DatabaseConfig - Database connection pool created successfully
+2026-04-26 18:13:23.106 [main] INFO  com.promo.otp.config.DatabaseConfig - Database connection test successful
+2026-04-26 18:13:23.156 [main] INFO  com.promo.otp.Main - Database connection pool initialized
+2026-04-26 18:13:23.166 [main] INFO  c.p.o.service.ExpiredCodesScheduler - Expired codes scheduler started
+2026-04-26 18:13:23.169 [main] INFO  com.promo.otp.Main - Expired codes cleanup scheduler started
+2026-04-26 18:13:23.859 [main] INFO  com.promo.otp.service.EmailService - Loaded email configuration
+2026-04-26 18:13:23.940 [main] INFO  com.promo.otp.service.EmailService - Email notification service initialized
+2026-04-26 18:13:23.945 [main] INFO  com.promo.otp.service.SmsService - Loaded SMS configuration
+2026-04-26 18:13:23.947 [main] INFO  com.promo.otp.service.SmsService - SMS notification service initialized with host: localhost
+2026-04-26 18:13:23.951 [main] INFO  c.promo.otp.service.TelegramService - Loaded Telegram configuration
+2026-04-26 18:13:23.956 [main] INFO  c.promo.otp.service.TelegramService - Telegram notification service initialized
+2026-04-26 18:13:23.964 [main] INFO  com.promo.otp.service.EmailService - Loaded email configuration
+2026-04-26 18:13:23.975 [main] INFO  com.promo.otp.service.EmailService - Email notification service initialized
+2026-04-26 18:13:23.976 [main] INFO  com.promo.otp.service.SmsService - Loaded SMS configuration
+2026-04-26 18:13:23.976 [main] INFO  com.promo.otp.service.SmsService - SMS notification service initialized with host: localhost
+2026-04-26 18:13:23.976 [main] INFO  c.promo.otp.service.TelegramService - Loaded Telegram configuration
+2026-04-26 18:13:23.976 [main] INFO  c.promo.otp.service.TelegramService - Telegram notification service initialized
+2026-04-26 18:13:24.021 [main] INFO  c.promo.otp.server.HttpServerManager - HTTP Server started on port 8080
+2026-04-26 18:13:24.022 [main] INFO  com.promo.otp.Main - OTP Service started successfully on port 8080
+2026-04-26 18:14:17.788 [pool-2-thread-2] WARN  c.p.otp.controller.AuthController - Registration failed: Username already exists
+2026-04-26 18:15:06.435 [Thread-1] INFO  com.promo.otp.Main - Shutting down OTP Service...
+2026-04-26 18:15:06.445 [Thread-1] INFO  c.promo.otp.server.HttpServerManager - HTTP Server stopped
+2026-04-26 18:15:06.451 [Thread-1] INFO  c.p.o.service.ExpiredCodesScheduler - Expired codes scheduler stopped
+2026-04-26 18:15:06.455 [Thread-1] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Shutdown initiated...
+2026-04-26 18:15:06.476 [Thread-1] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Shutdown completed.
+2026-04-26 18:15:06.478 [Thread-1] INFO  com.promo.otp.config.DatabaseConfig - Database connection pool closed
+2026-04-26 18:15:06.480 [Thread-1] INFO  com.promo.otp.Main - OTP Service stopped
+2026-04-26 18:52:56.744 [main] INFO  com.promo.otp.Main - Starting OTP Service...
+2026-04-26 18:52:56.759 [main] INFO  com.promo.otp.config.DatabaseConfig - Connecting to database: jdbc:postgresql://postgres:5432/otp_service
+2026-04-26 18:52:56.984 [main] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Starting...
+2026-04-26 18:52:58.419 [main] INFO  com.zaxxer.hikari.pool.HikariPool - OTP-HikariPool - Added connection org.postgresql.jdbc.PgConnection@6fd83fc1
+2026-04-26 18:52:58.434 [main] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Start completed.
+2026-04-26 18:52:58.436 [main] INFO  com.promo.otp.config.DatabaseConfig - Database connection pool created successfully
+2026-04-26 18:52:58.450 [main] INFO  com.promo.otp.config.DatabaseConfig - Database connection test successful
+2026-04-26 18:52:58.476 [main] INFO  com.promo.otp.Main - Database connection pool initialized
+2026-04-26 18:52:58.495 [main] INFO  c.p.o.service.ExpiredCodesScheduler - Expired codes scheduler started
+2026-04-26 18:52:58.497 [main] INFO  com.promo.otp.Main - Expired codes cleanup scheduler started
+2026-04-26 18:52:59.341 [main] INFO  com.promo.otp.service.EmailService - Loaded email configuration
+2026-04-26 18:52:59.453 [main] INFO  com.promo.otp.service.EmailService - Email notification service initialized
+2026-04-26 18:52:59.458 [main] INFO  com.promo.otp.service.SmsService - Loaded SMS configuration
+2026-04-26 18:52:59.460 [main] INFO  com.promo.otp.service.SmsService - SMS notification service initialized with host: localhost
+2026-04-26 18:52:59.466 [main] INFO  c.promo.otp.service.TelegramService - Loaded Telegram configuration
+2026-04-26 18:52:59.467 [main] INFO  c.promo.otp.service.TelegramService - Telegram notification service initialized
+2026-04-26 18:52:59.473 [main] INFO  com.promo.otp.service.EmailService - Loaded email configuration
+2026-04-26 18:52:59.483 [main] INFO  com.promo.otp.service.EmailService - Email notification service initialized
+2026-04-26 18:52:59.484 [main] INFO  com.promo.otp.service.SmsService - Loaded SMS configuration
+2026-04-26 18:52:59.486 [main] INFO  com.promo.otp.service.SmsService - SMS notification service initialized with host: localhost
+2026-04-26 18:52:59.488 [main] INFO  c.promo.otp.service.TelegramService - Loaded Telegram configuration
+2026-04-26 18:52:59.489 [main] INFO  c.promo.otp.service.TelegramService - Telegram notification service initialized
+2026-04-26 18:52:59.527 [main] INFO  c.promo.otp.server.HttpServerManager - HTTP Server started on port 8080
+2026-04-26 18:52:59.527 [main] INFO  com.promo.otp.Main - OTP Service started successfully on port 8080
+2026-04-26 18:53:58.575 [pool-2-thread-2] WARN  c.p.otp.controller.AuthController - Registration failed: Username already exists
+2026-04-26 18:54:48.864 [Thread-1] INFO  com.promo.otp.Main - Shutting down OTP Service...
+2026-04-26 18:54:48.866 [Thread-1] INFO  c.promo.otp.server.HttpServerManager - HTTP Server stopped
+2026-04-26 18:54:48.869 [Thread-1] INFO  c.p.o.service.ExpiredCodesScheduler - Expired codes scheduler stopped
+2026-04-26 18:54:48.870 [Thread-1] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Shutdown initiated...
+2026-04-26 18:54:48.881 [Thread-1] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Shutdown completed.
+2026-04-26 18:54:48.882 [Thread-1] INFO  com.promo.otp.config.DatabaseConfig - Database connection pool closed
+2026-04-26 18:54:48.882 [Thread-1] INFO  com.promo.otp.Main - OTP Service stopped
+2026-04-26 18:55:08.157 [main] INFO  com.promo.otp.Main - Starting OTP Service...
+2026-04-26 18:55:08.165 [main] INFO  com.promo.otp.config.DatabaseConfig - Connecting to database: jdbc:postgresql://postgres:5432/otp_service
+2026-04-26 18:55:08.252 [main] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Starting...
+2026-04-26 18:55:09.331 [main] INFO  com.zaxxer.hikari.pool.HikariPool - OTP-HikariPool - Added connection org.postgresql.jdbc.PgConnection@6fd83fc1
+2026-04-26 18:55:09.359 [main] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Start completed.
+2026-04-26 18:55:09.375 [main] INFO  com.promo.otp.config.DatabaseConfig - Database connection pool created successfully
+2026-04-26 18:55:09.390 [main] INFO  com.promo.otp.config.DatabaseConfig - Database connection test successful
+2026-04-26 18:55:09.500 [main] INFO  com.promo.otp.Main - Database connection pool initialized
+2026-04-26 18:55:09.520 [main] INFO  c.p.o.service.ExpiredCodesScheduler - Expired codes scheduler started
+2026-04-26 18:55:09.523 [main] INFO  com.promo.otp.Main - Expired codes cleanup scheduler started
+2026-04-26 18:55:10.854 [main] INFO  com.promo.otp.service.EmailService - Loaded email configuration
+2026-04-26 18:55:10.962 [main] INFO  com.promo.otp.service.EmailService - Email notification service initialized
+2026-04-26 18:55:10.969 [main] INFO  com.promo.otp.service.SmsService - Loaded SMS configuration
+2026-04-26 18:55:10.970 [main] INFO  com.promo.otp.service.SmsService - SMS notification service initialized with host: localhost
+2026-04-26 18:55:10.974 [main] INFO  c.promo.otp.service.TelegramService - Loaded Telegram configuration
+2026-04-26 18:55:10.978 [main] INFO  c.promo.otp.service.TelegramService - Telegram notification service initialized
+2026-04-26 18:55:10.982 [main] INFO  com.promo.otp.service.EmailService - Loaded email configuration
+2026-04-26 18:55:10.991 [main] INFO  com.promo.otp.service.EmailService - Email notification service initialized
+2026-04-26 18:55:10.994 [main] INFO  com.promo.otp.service.SmsService - Loaded SMS configuration
+2026-04-26 18:55:10.997 [main] INFO  com.promo.otp.service.SmsService - SMS notification service initialized with host: localhost
+2026-04-26 18:55:11.000 [main] INFO  c.promo.otp.service.TelegramService - Loaded Telegram configuration
+2026-04-26 18:55:11.003 [main] INFO  c.promo.otp.service.TelegramService - Telegram notification service initialized
+2026-04-26 18:55:11.028 [main] INFO  c.promo.otp.server.HttpServerManager - HTTP Server started on port 8080
+2026-04-26 18:55:11.031 [main] INFO  com.promo.otp.Main - OTP Service started successfully on port 8080
+2026-04-26 18:55:59.602 [pool-2-thread-1] WARN  c.p.otp.controller.AuthController - Registration failed: Username already exists
+2026-04-26 18:57:18.960 [Thread-1] INFO  com.promo.otp.Main - Shutting down OTP Service...
+2026-04-26 18:57:18.970 [Thread-1] INFO  c.promo.otp.server.HttpServerManager - HTTP Server stopped
+2026-04-26 18:57:18.973 [Thread-1] INFO  c.p.o.service.ExpiredCodesScheduler - Expired codes scheduler stopped
+2026-04-26 18:57:18.974 [Thread-1] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Shutdown initiated...
+2026-04-26 18:57:18.989 [Thread-1] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Shutdown completed.
+2026-04-26 18:57:18.990 [Thread-1] INFO  com.promo.otp.config.DatabaseConfig - Database connection pool closed
+2026-04-26 18:57:18.990 [Thread-1] INFO  com.promo.otp.Main - OTP Service stopped
+2026-04-26 18:58:20.737 [main] INFO  com.promo.otp.Main - Starting OTP Service...
+2026-04-26 18:58:20.744 [main] INFO  com.promo.otp.config.DatabaseConfig - Connecting to database: jdbc:postgresql://postgres:5432/otp_service
+2026-04-26 18:58:20.781 [main] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Starting...
+2026-04-26 18:58:21.568 [main] INFO  com.zaxxer.hikari.pool.HikariPool - OTP-HikariPool - Added connection org.postgresql.jdbc.PgConnection@6fd83fc1
+2026-04-26 18:58:21.573 [main] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Start completed.
+2026-04-26 18:58:21.576 [main] INFO  com.promo.otp.config.DatabaseConfig - Database connection pool created successfully
+2026-04-26 18:58:21.585 [main] INFO  com.promo.otp.config.DatabaseConfig - Database connection test successful
+2026-04-26 18:58:21.606 [main] INFO  com.promo.otp.Main - Database connection pool initialized
+2026-04-26 18:58:21.613 [main] INFO  c.p.o.service.ExpiredCodesScheduler - Expired codes scheduler started
+2026-04-26 18:58:21.613 [main] INFO  com.promo.otp.Main - Expired codes cleanup scheduler started
+2026-04-26 18:58:22.218 [main] INFO  com.promo.otp.service.EmailService - Loaded email configuration
+2026-04-26 18:58:22.275 [main] INFO  com.promo.otp.service.EmailService - Email notification service initialized
+2026-04-26 18:58:22.281 [main] INFO  com.promo.otp.service.SmsService - Loaded SMS configuration
+2026-04-26 18:58:22.282 [main] INFO  com.promo.otp.service.SmsService - SMS notification service initialized with host: localhost
+2026-04-26 18:58:22.285 [main] INFO  c.promo.otp.service.TelegramService - Loaded Telegram configuration
+2026-04-26 18:58:22.286 [main] INFO  c.promo.otp.service.TelegramService - Telegram notification service initialized
+2026-04-26 18:58:22.291 [main] INFO  com.promo.otp.service.EmailService - Loaded email configuration
+2026-04-26 18:58:22.300 [main] INFO  com.promo.otp.service.EmailService - Email notification service initialized
+2026-04-26 18:58:22.302 [main] INFO  com.promo.otp.service.SmsService - Loaded SMS configuration
+2026-04-26 18:58:22.302 [main] INFO  com.promo.otp.service.SmsService - SMS notification service initialized with host: localhost
+2026-04-26 18:58:22.303 [main] INFO  c.promo.otp.service.TelegramService - Loaded Telegram configuration
+2026-04-26 18:58:22.304 [main] INFO  c.promo.otp.service.TelegramService - Telegram notification service initialized
+2026-04-26 18:58:22.333 [main] INFO  c.promo.otp.server.HttpServerManager - HTTP Server started on port 8080
+2026-04-26 18:58:22.334 [main] INFO  com.promo.otp.Main - OTP Service started successfully on port 8080
+2026-04-26 18:59:06.314 [Thread-1] INFO  com.promo.otp.Main - Shutting down OTP Service...
+2026-04-26 18:59:06.318 [Thread-1] INFO  c.promo.otp.server.HttpServerManager - HTTP Server stopped
+2026-04-26 18:59:06.321 [Thread-1] INFO  c.p.o.service.ExpiredCodesScheduler - Expired codes scheduler stopped
+2026-04-26 18:59:06.323 [Thread-1] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Shutdown initiated...
+2026-04-26 18:59:06.334 [Thread-1] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Shutdown completed.
+2026-04-26 18:59:06.336 [Thread-1] INFO  com.promo.otp.config.DatabaseConfig - Database connection pool closed
+2026-04-26 18:59:06.339 [Thread-1] INFO  com.promo.otp.Main - OTP Service stopped
+2026-04-26 22:16:31.372 [main] INFO  com.promo.otp.Main - Starting OTP Service...
+2026-04-26 22:16:31.380 [main] INFO  com.promo.otp.config.DatabaseConfig - Connecting to database: jdbc:postgresql://postgres:5432/otp_service
+2026-04-26 22:16:31.445 [main] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Starting...
+2026-04-26 22:16:32.810 [main] ERROR com.promo.otp.config.DatabaseConfig - Failed to load database configuration
+com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initialize pool: Ошибка при попытке подсоединения.
+	at com.zaxxer.hikari.pool.HikariPool.throwPoolInitializationException(HikariPool.java:584)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:571)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98)
+	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:80)
+	at com.promo.otp.config.DatabaseConfig.initialize(DatabaseConfig.java:43)
+	at com.promo.otp.Main.main(Main.java:16)
+Caused by: org.postgresql.util.PSQLException: Ошибка при попытке подсоединения.
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:358)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:273)
+	at org.postgresql.Driver.makeConnection(Driver.java:446)
+	at org.postgresql.Driver.connect(Driver.java:298)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550)
+	... 4 common frames omitted
+Caused by: java.net.UnknownHostException: postgres
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:567)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:751)
+	at org.postgresql.core.PGStream.createSocket(PGStream.java:243)
+	at org.postgresql.core.PGStream.<init>(PGStream.java:98)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:136)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:262)
+	... 13 common frames omitted
+2026-04-26 22:16:32.816 [main] ERROR com.promo.otp.Main - Failed to start OTP Service
+java.lang.RuntimeException: Database initialization failed
+	at com.promo.otp.config.DatabaseConfig.initialize(DatabaseConfig.java:53)
+	at com.promo.otp.Main.main(Main.java:16)
+Caused by: com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initialize pool: Ошибка при попытке подсоединения.
+	at com.zaxxer.hikari.pool.HikariPool.throwPoolInitializationException(HikariPool.java:584)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:571)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98)
+	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:80)
+	at com.promo.otp.config.DatabaseConfig.initialize(DatabaseConfig.java:43)
+	... 1 common frames omitted
+Caused by: org.postgresql.util.PSQLException: Ошибка при попытке подсоединения.
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:358)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:273)
+	at org.postgresql.Driver.makeConnection(Driver.java:446)
+	at org.postgresql.Driver.connect(Driver.java:298)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550)
+	... 4 common frames omitted
+Caused by: java.net.UnknownHostException: postgres
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:567)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:751)
+	at org.postgresql.core.PGStream.createSocket(PGStream.java:243)
+	at org.postgresql.core.PGStream.<init>(PGStream.java:98)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:136)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:262)
+	... 13 common frames omitted
+2026-04-26 19:32:49.666 [main] INFO  com.promo.otp.Main - Starting OTP Service...
+2026-04-26 19:32:49.672 [main] INFO  com.promo.otp.config.DatabaseConfig - Connecting to database: jdbc:postgresql://postgres:5432/otp_service
+2026-04-26 19:32:49.721 [main] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Starting...
+2026-04-26 19:32:50.974 [main] ERROR com.promo.otp.config.DatabaseConfig - Failed to load database configuration
+com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initialize pool: Connection to postgres:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+	at com.zaxxer.hikari.pool.HikariPool.throwPoolInitializationException(HikariPool.java:584)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:571)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98)
+	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:80)
+	at com.promo.otp.config.DatabaseConfig.initialize(DatabaseConfig.java:43)
+	at com.promo.otp.Main.main(Main.java:16)
+Caused by: org.postgresql.util.PSQLException: Connection to postgres:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:346)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:273)
+	at org.postgresql.Driver.makeConnection(Driver.java:446)
+	at org.postgresql.Driver.connect(Driver.java:298)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550)
+	... 4 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(Unknown Source)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(Unknown Source)
+	at java.base/java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.base/java.net.Socket.connect(Unknown Source)
+	at org.postgresql.core.PGStream.createSocket(PGStream.java:243)
+	at org.postgresql.core.PGStream.<init>(PGStream.java:98)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:136)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:262)
+	... 13 common frames omitted
+2026-04-26 19:32:50.988 [main] ERROR com.promo.otp.Main - Failed to start OTP Service
+java.lang.RuntimeException: Database initialization failed
+	at com.promo.otp.config.DatabaseConfig.initialize(DatabaseConfig.java:53)
+	at com.promo.otp.Main.main(Main.java:16)
+Caused by: com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initialize pool: Connection to postgres:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+	at com.zaxxer.hikari.pool.HikariPool.throwPoolInitializationException(HikariPool.java:584)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:571)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98)
+	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:80)
+	at com.promo.otp.config.DatabaseConfig.initialize(DatabaseConfig.java:43)
+	... 1 common frames omitted
+Caused by: org.postgresql.util.PSQLException: Connection to postgres:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:346)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:273)
+	at org.postgresql.Driver.makeConnection(Driver.java:446)
+	at org.postgresql.Driver.connect(Driver.java:298)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550)
+	... 4 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(Unknown Source)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(Unknown Source)
+	at java.base/java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.base/java.net.Socket.connect(Unknown Source)
+	at org.postgresql.core.PGStream.createSocket(PGStream.java:243)
+	at org.postgresql.core.PGStream.<init>(PGStream.java:98)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:136)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:262)
+	... 13 common frames omitted
+2026-04-26 19:32:53.836 [main] INFO  com.promo.otp.Main - Starting OTP Service...
+2026-04-26 19:32:53.841 [main] INFO  com.promo.otp.config.DatabaseConfig - Connecting to database: jdbc:postgresql://postgres:5432/otp_service
+2026-04-26 19:32:53.892 [main] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Starting...
+2026-04-26 19:32:54.675 [main] INFO  com.zaxxer.hikari.pool.HikariPool - OTP-HikariPool - Added connection org.postgresql.jdbc.PgConnection@6fd83fc1
+2026-04-26 19:32:54.681 [main] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Start completed.
+2026-04-26 19:32:54.682 [main] INFO  com.promo.otp.config.DatabaseConfig - Database connection pool created successfully
+2026-04-26 19:32:54.686 [main] INFO  com.promo.otp.config.DatabaseConfig - Database connection test successful
+2026-04-26 19:32:54.713 [main] INFO  com.promo.otp.Main - Database connection pool initialized
+2026-04-26 19:32:54.719 [main] INFO  c.p.o.service.ExpiredCodesScheduler - Expired codes scheduler started
+2026-04-26 19:32:54.721 [main] INFO  com.promo.otp.Main - Expired codes cleanup scheduler started
+2026-04-26 19:32:55.216 [main] INFO  com.promo.otp.service.EmailService - Loaded email configuration
+2026-04-26 19:32:55.285 [main] INFO  com.promo.otp.service.EmailService - Email notification service initialized
+2026-04-26 19:32:55.288 [main] INFO  com.promo.otp.service.SmsService - Loaded SMS configuration
+2026-04-26 19:32:55.290 [main] INFO  com.promo.otp.service.SmsService - SMS notification service initialized with host: localhost
+2026-04-26 19:32:55.295 [main] INFO  c.promo.otp.service.TelegramService - Loaded Telegram configuration
+2026-04-26 19:32:55.296 [main] INFO  c.promo.otp.service.TelegramService - Telegram notification service initialized
+2026-04-26 19:32:55.301 [main] INFO  com.promo.otp.service.EmailService - Loaded email configuration
+2026-04-26 19:32:55.309 [main] INFO  com.promo.otp.service.EmailService - Email notification service initialized
+2026-04-26 19:32:55.311 [main] INFO  com.promo.otp.service.SmsService - Loaded SMS configuration
+2026-04-26 19:32:55.312 [main] INFO  com.promo.otp.service.SmsService - SMS notification service initialized with host: localhost
+2026-04-26 19:32:55.314 [main] INFO  c.promo.otp.service.TelegramService - Loaded Telegram configuration
+2026-04-26 19:32:55.315 [main] INFO  c.promo.otp.service.TelegramService - Telegram notification service initialized
+2026-04-26 19:32:55.348 [main] INFO  c.promo.otp.server.HttpServerManager - HTTP Server started on port 8080
+2026-04-26 19:32:55.349 [main] INFO  com.promo.otp.Main - OTP Service started successfully on port 8080
+2026-04-26 19:34:45.574 [pool-2-thread-2] INFO  com.promo.otp.service.AuthService - First user registered as ADMIN: admin
+2026-04-26 19:34:45.696 [pool-2-thread-2] INFO  com.promo.otp.dao.UserDAO - Saved user: admin
+2026-04-26 19:34:45.818 [pool-2-thread-2] INFO  com.promo.otp.service.AuthService - User registered successfully: admin
+2026-04-26 19:34:45.849 [pool-2-thread-2] INFO  c.p.otp.controller.AuthController - POST /api/auth/register - User registered: admin
+2026-04-26 19:35:48.914 [pool-2-thread-3] INFO  c.p.otp.controller.AdminController - GET /api/admin/config - Config retrieved
+2026-04-26 19:35:48.980 [pool-2-thread-3] INFO  com.promo.otp.dao.OtpConfigDAO - Updated OTP configuration: ttl=600, length=8
+2026-04-26 19:35:48.988 [pool-2-thread-3] INFO  c.p.otp.controller.AdminController - PUT /api/admin/config - Config updated by admin
+2026-04-26 19:35:49.034 [pool-2-thread-4] INFO  c.p.otp.controller.AdminController - GET /api/admin/users - Retrieved 0 users
+2026-04-26 19:36:42.280 [pool-2-thread-4] INFO  com.promo.otp.dao.UserDAO - Saved user: user1
+2026-04-26 19:36:42.282 [pool-2-thread-4] INFO  com.promo.otp.service.AuthService - User registered successfully: user1
+2026-04-26 19:36:42.283 [pool-2-thread-4] INFO  c.p.otp.controller.AuthController - POST /api/auth/register - User registered: user1
+2026-04-26 19:43:42.336 [pool-2-thread-6] INFO  com.promo.otp.dao.UserDAO - Saved user: testadmin
+2026-04-26 19:43:42.340 [pool-2-thread-6] INFO  com.promo.otp.service.AuthService - User registered successfully: testadmin
+2026-04-26 19:43:42.342 [pool-2-thread-6] INFO  c.p.otp.controller.AuthController - POST /api/auth/register - User registered: testadmin
+2026-04-26 19:43:42.470 [pool-2-thread-6] INFO  com.promo.otp.service.AuthService - User logged in successfully: testadmin
+2026-04-26 19:43:42.473 [pool-2-thread-6] INFO  c.p.otp.controller.AuthController - POST /api/auth/login - User logged in: testadmin
+2026-04-26 19:43:42.600 [pool-2-thread-6] INFO  com.promo.otp.dao.UserDAO - Saved user: testuser
+2026-04-26 19:43:42.602 [pool-2-thread-6] INFO  com.promo.otp.service.AuthService - User registered successfully: testuser
+2026-04-26 19:43:42.605 [pool-2-thread-6] INFO  c.p.otp.controller.AuthController - POST /api/auth/register - User registered: testuser
+2026-04-26 19:43:42.731 [pool-2-thread-6] INFO  com.promo.otp.service.AuthService - User logged in successfully: testuser
+2026-04-26 19:43:42.734 [pool-2-thread-6] INFO  c.p.otp.controller.AuthController - POST /api/auth/login - User logged in: testuser
+2026-04-26 19:45:06.099 [pool-2-thread-7] INFO  com.promo.otp.dao.UserDAO - Saved user: admin2
+2026-04-26 19:45:06.115 [pool-2-thread-7] INFO  com.promo.otp.service.AuthService - User registered successfully: admin2
+2026-04-26 19:45:06.118 [pool-2-thread-7] INFO  c.p.otp.controller.AuthController - POST /api/auth/register - User registered: admin2
+2026-04-26 19:45:06.329 [pool-2-thread-7] INFO  com.promo.otp.service.AuthService - User logged in successfully: admin2
+2026-04-26 19:45:06.332 [pool-2-thread-7] INFO  c.p.otp.controller.AuthController - POST /api/auth/login - User logged in: admin2
+2026-04-26 19:45:06.668 [pool-2-thread-7] INFO  com.promo.otp.dao.UserDAO - Saved user: testuser2
+2026-04-26 19:45:06.675 [pool-2-thread-7] INFO  com.promo.otp.service.AuthService - User registered successfully: testuser2
+2026-04-26 19:45:06.685 [pool-2-thread-7] INFO  c.p.otp.controller.AuthController - POST /api/auth/register - User registered: testuser2
+2026-04-26 19:45:06.927 [pool-2-thread-8] INFO  com.promo.otp.service.AuthService - User logged in successfully: testuser2
+2026-04-26 19:45:06.930 [pool-2-thread-8] INFO  c.p.otp.controller.AuthController - POST /api/auth/login - User logged in: testuser2
+2026-04-26 19:45:06.993 [pool-2-thread-8] INFO  com.promo.otp.dao.OtpCodeDAO - Saved OTP code for operation: test_1777232706, user: 6
+2026-04-26 19:45:06.996 [pool-2-thread-8] INFO  com.promo.otp.service.FileService - OTP code saved to file: ./otp-files/otp_testuser2_1777232706994.txt
+2026-04-26 19:45:06.998 [pool-2-thread-8] INFO  com.promo.otp.service.OtpService - Generated OTP for user 6, operation test_1777232706, channel file
+2026-04-26 19:45:07.006 [pool-2-thread-8] INFO  c.promo.otp.controller.OtpController - POST /api/otp/generate - User 6 generated OTP for operation test_1777232706
+2026-04-26 19:52:21.626 [Thread-1] INFO  com.promo.otp.Main - Shutting down OTP Service...
+2026-04-26 19:52:21.629 [Thread-1] INFO  c.promo.otp.server.HttpServerManager - HTTP Server stopped
+2026-04-26 19:52:21.631 [Thread-1] INFO  c.p.o.service.ExpiredCodesScheduler - Expired codes scheduler stopped
+2026-04-26 19:52:21.631 [Thread-1] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Shutdown initiated...
+2026-04-26 19:52:21.638 [Thread-1] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Shutdown completed.
+2026-04-26 19:52:21.639 [Thread-1] INFO  com.promo.otp.config.DatabaseConfig - Database connection pool closed
+2026-04-26 19:52:21.639 [Thread-1] INFO  com.promo.otp.Main - OTP Service stopped
+2026-04-26 19:52:28.626 [main] INFO  com.promo.otp.Main - Starting OTP Service...
+2026-04-26 19:52:28.637 [main] INFO  com.promo.otp.config.DatabaseConfig - Connecting to database: jdbc:postgresql://postgres:5432/otp_service
+2026-04-26 19:52:28.668 [main] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Starting...
+2026-04-26 19:52:29.863 [main] ERROR com.promo.otp.config.DatabaseConfig - Failed to load database configuration
+com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initialize pool: Connection to postgres:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+	at com.zaxxer.hikari.pool.HikariPool.throwPoolInitializationException(HikariPool.java:584)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:571)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98)
+	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:80)
+	at com.promo.otp.config.DatabaseConfig.initialize(DatabaseConfig.java:43)
+	at com.promo.otp.Main.main(Main.java:16)
+Caused by: org.postgresql.util.PSQLException: Connection to postgres:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:346)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:273)
+	at org.postgresql.Driver.makeConnection(Driver.java:446)
+	at org.postgresql.Driver.connect(Driver.java:298)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550)
+	... 4 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(Unknown Source)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(Unknown Source)
+	at java.base/java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.base/java.net.Socket.connect(Unknown Source)
+	at org.postgresql.core.PGStream.createSocket(PGStream.java:243)
+	at org.postgresql.core.PGStream.<init>(PGStream.java:98)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:136)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:262)
+	... 13 common frames omitted
+2026-04-26 19:52:29.891 [main] ERROR com.promo.otp.Main - Failed to start OTP Service
+java.lang.RuntimeException: Database initialization failed
+	at com.promo.otp.config.DatabaseConfig.initialize(DatabaseConfig.java:53)
+	at com.promo.otp.Main.main(Main.java:16)
+Caused by: com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initialize pool: Connection to postgres:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+	at com.zaxxer.hikari.pool.HikariPool.throwPoolInitializationException(HikariPool.java:584)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:571)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98)
+	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:80)
+	at com.promo.otp.config.DatabaseConfig.initialize(DatabaseConfig.java:43)
+	... 1 common frames omitted
+Caused by: org.postgresql.util.PSQLException: Connection to postgres:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:346)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:273)
+	at org.postgresql.Driver.makeConnection(Driver.java:446)
+	at org.postgresql.Driver.connect(Driver.java:298)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550)
+	... 4 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(Unknown Source)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(Unknown Source)
+	at java.base/java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.base/java.net.Socket.connect(Unknown Source)
+	at org.postgresql.core.PGStream.createSocket(PGStream.java:243)
+	at org.postgresql.core.PGStream.<init>(PGStream.java:98)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:136)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:262)
+	... 13 common frames omitted
+2026-04-26 19:52:33.566 [main] INFO  com.promo.otp.Main - Starting OTP Service...
+2026-04-26 19:52:33.571 [main] INFO  com.promo.otp.config.DatabaseConfig - Connecting to database: jdbc:postgresql://postgres:5432/otp_service
+2026-04-26 19:52:33.606 [main] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Starting...
+2026-04-26 19:52:34.386 [main] INFO  com.zaxxer.hikari.pool.HikariPool - OTP-HikariPool - Added connection org.postgresql.jdbc.PgConnection@6fd83fc1
+2026-04-26 19:52:34.396 [main] INFO  com.zaxxer.hikari.HikariDataSource - OTP-HikariPool - Start completed.
+2026-04-26 19:52:34.398 [main] INFO  com.promo.otp.config.DatabaseConfig - Database connection pool created successfully
+2026-04-26 19:52:34.406 [main] INFO  com.promo.otp.config.DatabaseConfig - Database connection test successful
+2026-04-26 19:52:34.434 [main] INFO  com.promo.otp.Main - Database connection pool initialized
+2026-04-26 19:52:34.453 [main] INFO  c.p.o.service.ExpiredCodesScheduler - Expired codes scheduler started
+2026-04-26 19:52:34.457 [main] INFO  com.promo.otp.Main - Expired codes cleanup scheduler started
+2026-04-26 19:52:35.025 [main] INFO  com.promo.otp.service.EmailService - Loaded email configuration
+2026-04-26 19:52:35.163 [main] INFO  com.promo.otp.service.EmailService - Email notification service initialized
+2026-04-26 19:52:35.169 [main] INFO  com.promo.otp.service.SmsService - Loaded SMS configuration
+2026-04-26 19:52:35.170 [main] INFO  com.promo.otp.service.SmsService - SMS notification service initialized with host: localhost
+2026-04-26 19:52:35.171 [main] INFO  c.promo.otp.service.TelegramService - Loaded Telegram configuration
+2026-04-26 19:52:35.172 [main] INFO  c.promo.otp.service.TelegramService - Telegram notification service initialized
+2026-04-26 19:52:35.175 [main] INFO  com.promo.otp.service.EmailService - Loaded email configuration
+2026-04-26 19:52:35.184 [main] INFO  com.promo.otp.service.EmailService - Email notification service initialized
+2026-04-26 19:52:35.185 [main] INFO  com.promo.otp.service.SmsService - Loaded SMS configuration
+2026-04-26 19:52:35.185 [main] INFO  com.promo.otp.service.SmsService - SMS notification service initialized with host: localhost
+2026-04-26 19:52:35.186 [main] INFO  c.promo.otp.service.TelegramService - Loaded Telegram configuration
+2026-04-26 19:52:35.187 [main] INFO  c.promo.otp.service.TelegramService - Telegram notification service initialized
+2026-04-26 19:52:35.271 [main] INFO  c.promo.otp.server.HttpServerManager - HTTP Server started on port 8080
+2026-04-26 19:52:35.273 [main] INFO  com.promo.otp.Main - OTP Service started successfully on port 8080
+2026-04-26 19:53:11.052 [pool-2-thread-2] INFO  com.promo.otp.service.AuthService - First user registered as ADMIN: admin2
+2026-04-26 19:53:11.227 [pool-2-thread-2] INFO  com.promo.otp.dao.UserDAO - Saved user: admin2
+2026-04-26 19:53:11.338 [pool-2-thread-2] INFO  com.promo.otp.service.AuthService - User registered successfully: admin2
+2026-04-26 19:53:11.365 [pool-2-thread-2] INFO  c.p.otp.controller.AuthController - POST /api/auth/register - User registered: admin2
+2026-04-26 19:53:11.523 [pool-2-thread-2] INFO  com.promo.otp.service.AuthService - User logged in successfully: admin2
+2026-04-26 19:53:11.528 [pool-2-thread-2] INFO  c.p.otp.controller.AuthController - POST /api/auth/login - User logged in: admin2
+2026-04-26 19:53:11.611 [pool-2-thread-2] INFO  c.p.otp.controller.AdminController - GET /api/admin/config - Config retrieved
+2026-04-26 19:53:11.745 [pool-2-thread-2] INFO  com.promo.otp.dao.OtpConfigDAO - Updated OTP configuration: ttl=900, length=8
+2026-04-26 19:53:11.755 [pool-2-thread-2] INFO  c.p.otp.controller.AdminController - PUT /api/admin/config - Config updated by admin2
+2026-04-26 19:53:11.961 [pool-2-thread-2] INFO  com.promo.otp.dao.UserDAO - Saved user: testuser2
+2026-04-26 19:53:11.963 [pool-2-thread-2] INFO  com.promo.otp.service.AuthService - User registered successfully: testuser2
+2026-04-26 19:53:11.966 [pool-2-thread-2] INFO  c.p.otp.controller.AuthController - POST /api/auth/register - User registered: testuser2
+2026-04-26 19:53:12.120 [pool-2-thread-1] INFO  com.promo.otp.service.AuthService - User logged in successfully: testuser2
+2026-04-26 19:53:12.145 [pool-2-thread-1] INFO  c.p.otp.controller.AuthController - POST /api/auth/login - User logged in: testuser2
+2026-04-26 19:53:12.205 [pool-2-thread-1] INFO  com.promo.otp.dao.OtpCodeDAO - Saved OTP code for operation: test_1777233192, user: 2
+2026-04-26 19:53:12.218 [pool-2-thread-1] INFO  com.promo.otp.service.FileService - OTP code saved to file: ./otp-files/otp_testuser2_1777233192208.txt
+2026-04-26 19:53:12.221 [pool-2-thread-1] INFO  com.promo.otp.service.OtpService - Generated OTP for user 2, operation test_1777233192, channel file
+2026-04-26 19:53:12.232 [pool-2-thread-1] INFO  c.promo.otp.controller.OtpController - POST /api/otp/generate - User 2 generated OTP for operation test_1777233192
+2026-04-26 19:53:12.333 [pool-2-thread-1] INFO  c.p.otp.controller.AdminController - GET /api/admin/users - Retrieved 1 users
+2026-04-26 20:08:34.458 [pool-1-thread-1] INFO  com.promo.otp.dao.OtpCodeDAO - Expired 1 OTP codes
+2026-04-26 20:08:34.459 [pool-1-thread-1] DEBUG c.p.o.service.ExpiredCodesScheduler - Expired 1 OTP codes
