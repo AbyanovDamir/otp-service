@@ -812,20 +812,24 @@ echo "📬 Для просмотра email откройте: http://localhost:80
 
 ```bash
 
-echo "=== 5. Создание общей сети ==="
+echo "===  Создание общей сети ==="
 docker network create otp-network
 
-echo "=== 6. Запуск MailHog ==="
+echo "===  Запуск MailHog ==="
 docker run -d -p 1025:1025 -p 8025:8025 --name mailhog --network otp-network mailhog/mailhog
 
 
 git clone https://github.com/melroselabs/smpp-smsc-simulator.git
-echo "=== 7. Запуск SMPP симулятора ==="
+echo "=== Запуск SMPP симулятора ==="
 cd smpp-smsc-simulator
 docker compose down
 docker compose up -d
 docker network connect otp-network smpp-smsc-simulator-smscsimulator-1
 
+
+
+git clone https://github.com/positron48/telegram-emulator.git
+echo "=== Запуск telegram эмулятора ==="
 cd telegram-emulator
 
 #3. Создание Dockerfile
