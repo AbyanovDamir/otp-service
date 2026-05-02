@@ -832,7 +832,7 @@ git clone https://github.com/positron48/telegram-emulator.git
 echo "=== Запуск telegram эмулятора ==="
 cd telegram-emulator
 
-#3. Создание Dockerfile
+# Создание Dockerfile
 
 cat > Dockerfile << 'EOF'
 # Этап сборки
@@ -873,7 +873,7 @@ ENV TELEGRAM_EMULATOR_PORT=3001
 CMD ["./telegram-emulator"]
 EOF
 
-#4. Создание конфигурационного файла
+# Создание конфигурационного файла
 
 
 # Создаем конфиг с отключенными логами
@@ -896,18 +896,18 @@ server:
 EOF
 
 
-#5. Сборка Docker образа
+# Сборка Docker образа
 
 
 docker build -t telegram-emulator:latest .
 
-#6. Остановка и удаление старого контейнера (если есть)
+# Остановка и удаление старого контейнера (если есть)
 
 
 docker stop telegram-emulator 2>/dev/null || true
 docker rm telegram-emulator 2>/dev/null || true
 
-#7. Запуск контейнера
+# Запуск контейнера
 
 
 # Запускаем с монтированием конфига
@@ -921,7 +921,7 @@ docker run -d \
   telegram-emulator:latest
 
 
-#8. Проверка работы
+# Проверка работы
 
 
 docker ps | grep telegram-emulator
@@ -940,7 +940,7 @@ curl -s http://localhost:3001/api/chats | head -c 500
 git clone https://github.com/AbyanovDamir/otp-service.git
 cd otp-service
 mvn clean package -DskipTests -q
-echo "=== 10. Запуск всех сервисов ==="
+echo "===  Запуск всех сервисов ==="
 cd /home/damir/otp/otp5/otp-service/docker
 docker compose up -d --buildservice
 
