@@ -942,6 +942,9 @@ cd ~
 # Клонирование реппозитория основных сервисов
 git clone https://github.com/AbyanovDamir/otp-service.git
 cd otp-service
+# Создаем папку для конфигов внутри docker
+mkdir -p docker/config
+cp src/main/resources/application.properties docker/config/ 2>/dev/null || echo "Нет конфигов, создадим пример"
 mvn clean package -DskipTests -q
 echo "===  Запуск всех сервисов ==="
 cd ~
