@@ -23,6 +23,8 @@ public class TelegramService {
         this.botToken = config.getProperty("telegram.bot.token", "");
         this.apiUrl = config.getProperty("telegram.api.url", "https://api.telegram.org/bot");
         logger.info("Telegram notification service initialized");
+        logger.info("Telegram API URL: {}", this.apiUrl);
+        logger.info("Telegram Bot Token: {}", this.botToken != null ? "configured" : "missing");
     }
 
     private Properties loadConfig() {
@@ -57,17 +59,24 @@ public class TelegramService {
             code
         );
 
-        String url = String.format("%s%s/sendMessage?chat_id=%s&text=%s&parse_mode=Markdown",
-                apiUrl, botToken, chatId, urlEncode(message));
+        // ИСПРАВЛЕНО: добавляем "bot" перед токеном и используем POST вместо GET
+        String url = String.format("%sbot%s/sendMessage", apiUrl, botToken);
+        
+        // Используем POST запрос с JSON телом
+        String jsonBody = String.format("{\"chat_id\": \"%s\", \"text\": \"%s\", \"parse_mode\": \"Markdown\"}",
+                chatId, escapeJson(message));
 
-        return sendTelegramRequest(url);
+        logger.debug("Sending Telegram request to: {}", url);
+        
+        return sendTelegramRequestPost(url, jsonBody);
     }
 
-    private boolean sendTelegramRequest(String url) {
+    private boolean sendTelegramRequestPost(String url, String jsonBody) {
         HttpClient httpClient = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(url))
-                .GET()
+                .header("Content-Type", "application/json")
+                .POST(HttpRequest.BodyPublishers.ofString(jsonBody))
                 .build();
 
         try {
@@ -93,5 +102,12 @@ public class TelegramService {
 
     private static String urlEncode(String value) {
         return URLEncoder.encode(value, StandardCharsets.UTF_8);
+    }
+    
+    private static String escapeJson(String value) {
+        return value.replace("\\", "\\\\")
+                    .replace("\"", "\\\"")
+                    .replace("\n", "\\n")
+                    .replace("\r", "\\r");
     }
 }
