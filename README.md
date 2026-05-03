@@ -834,7 +834,7 @@ cd telegram-emulator
 
 # Создание Dockerfile
 
-cat > Dockerfile << 'EOF'
+
 cat > Dockerfile << 'EOF'
 # Этап сборки
 FROM ubuntu:24.04 AS builder
