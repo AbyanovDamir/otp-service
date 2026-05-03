@@ -41,16 +41,6 @@ services:
     volumes:
       - ../logs:/app/logs
       - ../otp-files:/app/otp-files
-      # Монтируем конфиги в нужные места
-      - ./config/application.properties:/app/application.properties:ro
-      - ./config/email.properties:/app/email.properties:ro
-      - ./config/sms.properties:/app/sms.properties:ro
-      - ./config/telegram.properties:/app/telegram.properties:ro
-      # Дублируем в /app/config/
-      - ./config/application.properties:/app/config/application.properties:ro
-      - ./config/email.properties:/app/config/email.properties:ro
-      - ./config/sms.properties:/app/config/sms.properties:ro
-      - ./config/telegram.properties:/app/config/telegram.properties:ro
     networks:
       - otp-network
     restart: unless-stopped
@@ -62,3 +52,4 @@ networks:
   otp-network:
     external: true
     name: otp-network
+
