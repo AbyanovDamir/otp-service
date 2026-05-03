@@ -942,7 +942,6 @@ git clone https://github.com/AbyanovDamir/otp-service.git
 cd otp-service
 mvn clean package -DskipTests -q
 echo "===  Запуск всех сервисов ==="
-cd /home/damir/otp/otp5/otp-service/docker
 docker compose up -d --build
 
 echo "Ожидание запуска всех сервисов (45 сек)..."
