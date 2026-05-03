@@ -12,6 +12,9 @@ WORKDIR /app
 RUN apk add --no-cache tzdata curl wget
 ENV TZ=UTC
 
+# Добавляем host.docker.internal в /etc/hosts (для Linux)
+RUN echo "172.17.0.1 host.docker.internal" >> /etc/hosts
+
 # Создаем директории
 RUN mkdir -p /app/config /app/logs /app/otp-files
 
@@ -24,3 +27,9 @@ COPY src/main/resources/*.properties /app/config/ 2>/dev/null || true
 EXPOSE 8080
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
+
+
+
+
+
+
