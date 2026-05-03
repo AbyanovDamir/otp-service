@@ -835,7 +835,6 @@ cd telegram-emulator
 # Создание Dockerfile
 
 cat > Dockerfile << 'EOF'
-# Этап сборки
 FROM ubuntu:24.04 AS builder
 
 RUN apt-get update && apt-get install -y wget gcc g++ make git ca-certificates && rm -rf /var/lib/apt/lists/*
@@ -871,28 +870,6 @@ ENV TELEGRAM_EMULATOR_HOST=0.0.0.0
 ENV TELEGRAM_EMULATOR_PORT=3001
 
 CMD ["./telegram-emulator"]
-EOF
-
-# Создание конфигурационного файла
-
-
-# Создаем конфиг с отключенными логами
-cat > config.yaml << 'EOF'
-emulator:
-  host: 0.0.0.0
-  port: 3001
-
-database:
-  url: /app/data/emulator.db
-
-logging:
-  level: info
-  format: text
-  file: ""
-
-server:
-  host: 0.0.0.0
-  port: 3001
 EOF
 
 
