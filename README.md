@@ -941,9 +941,12 @@ curl -s http://localhost:3001/api/chats | head -c 500
 cd ~
 # Клонирование реппозитория основных сервисов
 git clone https://github.com/AbyanovDamir/otp-service.git
-cd otp-service/docker
+cd otp-service
 mvn clean package -DskipTests -q
 echo "===  Запуск всех сервисов ==="
+cd ~
+cd otp-service/docker
+
 docker compose up -d --build
 
 echo "Ожидание запуска всех сервисов (45 сек)..."
