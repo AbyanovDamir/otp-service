@@ -835,6 +835,7 @@ cd telegram-emulator
 # Создание Dockerfile
 
 
+
 cat > Dockerfile << 'EOF'
 # Этап сборки
 FROM ubuntu:24.04 AS builder
@@ -874,19 +875,41 @@ ENV TELEGRAM_EMULATOR_PORT=3001
 CMD ["./telegram-emulator"]
 EOF
 
+#4. Создание конфигурационного файла
 
-# Сборка Docker образа
+
+# Создаем конфиг с отключенными логами
+cat > config.yaml << 'EOF'
+emulator:
+  host: 0.0.0.0
+  port: 3001
+
+database:
+  url: /app/data/emulator.db
+
+logging:
+  level: info
+  format: text
+  file: ""
+
+server:
+  host: 0.0.0.0
+  port: 3001
+EOF
+
+
+#5. Сборка Docker образа
 
 
 docker build -t telegram-emulator:latest .
 
-# Остановка и удаление старого контейнера (если есть)
+#6. Остановка и удаление старого контейнера (если есть)
 
 
 docker stop telegram-emulator 2>/dev/null || true
 docker rm telegram-emulator 2>/dev/null || true
 
-# Запуск контейнера
+#7. Запуск контейнера
 
 
 # Запускаем с монтированием конфига
