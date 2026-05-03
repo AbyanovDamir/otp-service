@@ -1279,17 +1279,18 @@ echo -e "\n✅ Готово!"
 echo "=== 1. Остановка и удаление старых контейнеров ==="
 docker stop mailhog 2>/dev/null || true
 docker rm mailhog 2>/dev/null || true
-
-cd /home/damir/otp/otp5/otp-service/docker
+cd ~
+cd otp-service/docker
 docker compose down -v 2>/dev/null || true
-
-cd /home/damir/smpp-smsc-simulator
+cd ~
+cd smpp-smsc-simulator
 docker compose down -v 2>/dev/null || true
 
 # Дополнительная очистка конфликтующих контейнеров
 docker rm -f otp-postgres otp-service mailhog 2>/dev/null || true
 docker rm -f smpp-smsc-simulator-smscsimulator-1 2>/dev/null || true
-
+cd ~
+cd  telegram-emulator
 # Остановить и удалить контейнер
 docker stop telegram-emulator
 docker rm telegram-emulator
