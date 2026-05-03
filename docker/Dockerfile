@@ -8,18 +8,18 @@ RUN mvn clean package -DskipTests
 FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
 
-# Устанавливаем утилиты
 RUN apk add --no-cache tzdata curl wget
 ENV TZ=UTC
 
-# Создаем директории
 RUN mkdir -p /app/config /app/logs /app/otp-files
 
-# Копируем JAR
 COPY --from=build /app/target/otp-service-*.jar app.jar
 
-# Копируем конфиги, если они есть (используем правильный синтаксис)
-COPY src/main/resources/*.properties /app/config/ || true
+# Копируем конфиги через RUN shell
+RUN mkdir -p /app/config && \
+    if [ -d src/main/resources ]; then \
+        cp src/main/resources/*.properties /app/config/ 2>/dev/null || true; \
+    fi
 
 EXPOSE 8080
 
