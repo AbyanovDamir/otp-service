@@ -15,15 +15,13 @@ RUN mkdir -p /app/config /app/logs /app/otp-files
 
 COPY --from=build /app/target/otp-service-*.jar app.jar
 
-# Копируем конфиги через RUN shell
-RUN mkdir -p /app/config && \
-    if [ -d src/main/resources ]; then \
-        cp src/main/resources/*.properties /app/config/ 2>/dev/null || true; \
-    fi
+# Копируем конфиги (если файлы есть - скопируются, если нет - проигнорируется)
+COPY config/ /app/config/
 
 EXPOSE 8080
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
+EOF
 
 
 
