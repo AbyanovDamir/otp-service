@@ -744,10 +744,14 @@ curl -s -X GET http://localhost:8080/api/health | jq .
 ### Логин
 
 ```bash
-
-curl -X POST http://localhost:8080/login \
+curl -X POST http://localhost:8080/api/auth/register \
   -H "Content-Type: application/json" \
-  -d '{"email":"user@example.com","password":"123456"}'
+  -d '{
+    "username": "testuser",
+    "password": "password123",
+    "email": "user@example.com",
+    "phone": "+79991234567"
+  }' | jq '.'
 
 ```
 
@@ -755,9 +759,26 @@ curl -X POST http://localhost:8080/login \
 
 ```json
 {
-  "token": "eyJhbGciOiJIUzI1NiIs...",
-  "message": "Login successful"
+  "success": true,
+  "message": "User registered successfully",
+  "data": {
+    "user": {
+      "id": 3,
+      "username": "testuser",
+      "passwordHash": "$2a$10$Dky3FPNVDUh17rrQUueCX.WHq6H9aB91enkg9K/3brlt0t/oeKNAK",
+      "email": "user@example.com",
+      "phone": "+79991234567",
+      "telegramChatId": null,
+      "role": "USER",
+      "createdAt": "2026-05-03T12:48:47.975148",
+      "updatedAt": "2026-05-03T12:48:47.975148",
+      "admin": false
+    },
+    "token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0dXNlciIsInVzZXJJZCI6Mywicm9sZSI6IlVTRVIiLCJpYXQiOjE3Nzc4MTI1MjcsImV4cCI6MTc3Nzg5ODkyN30.EtTAQmco1HC9lBPsIV-u-8VC6OMaw__yZqgFUX94pV3XvBki60NWJrB6zKt4eiC6"
+  },
+  "error": null
 }
+
 
 ```
 
